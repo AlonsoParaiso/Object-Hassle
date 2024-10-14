@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character
 {
-    // Start is called before the first frame update
-    void Start()
+    private string _name;
+    private Mesh _sprite;
+    protected float damage;
+
+    public Character() { }
+    public Character(string name,float damage, Mesh sprite) 
     {
-        
+        _name = name;
+        this.damage = damage;
+        _sprite = sprite;
+
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public virtual float Attack() { return damage; }
 }
