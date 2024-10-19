@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     {
         time = 0;
         SceneManager.LoadScene(sceneName);
-        AudioManager.instance.ClearAudio();
+        //AudioManager.instance.ClearAudio();
     }
 
     public void ExitGame()

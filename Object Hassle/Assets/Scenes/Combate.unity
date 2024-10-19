@@ -511,7 +511,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!1 &1195623765
 GameObject:
@@ -526,6 +526,7 @@ GameObject:
   - component: {fileID: 1195623767}
   - component: {fileID: 1195623766}
   - component: {fileID: 1195623770}
+  - component: {fileID: 1195623771}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -646,8 +647,26 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &1195623771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195623765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70efa36dab8af094f8be06c75cb1aba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  runningSpeed: 20
+  rotationSpeed: 0
+  jumpForce: 342
+  sphereRadius: 0.65
+  groundName: ground
 --- !u!1 &1438941725
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,8 +679,8 @@ GameObject:
   - component: {fileID: 1438941728}
   - component: {fileID: 1438941727}
   - component: {fileID: 1438941726}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 3
+  m_Name: Plataforma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -748,7 +767,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2.37}
-  m_LocalScale: {x: 9.1282, y: 1, z: 2.894}
+  m_LocalScale: {x: 16.375616, y: 1, z: 2.894}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
