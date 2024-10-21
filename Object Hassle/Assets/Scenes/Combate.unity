@@ -551,8 +551,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 10
-  maxJumps: 3
+  maxJumps: 2
   player: {fileID: 1195623765}
+  plataform: {fileID: 1438941725}
 --- !u!1 &1195623765
 GameObject:
   m_ObjectHideFlags: 0

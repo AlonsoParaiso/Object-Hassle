@@ -7,7 +7,7 @@ public class IA_Movement : MonoBehaviour
     public float speed, jumpForce;
     public int maxJumps;
 
-    public GameObject player;
+    public GameObject player, plataform;
 
     private Vector3 dir;
     private int currentJumps = 0;
@@ -23,7 +23,7 @@ public class IA_Movement : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.transform.position.x, 1.5f, transform.position.z), speed * Time.deltaTime);
-        dir= target.transform.position - transform.position;
+        dir= plataform.transform.position - transform.position;
     }
 
     private void OnCollisionExit(Collision collision)
