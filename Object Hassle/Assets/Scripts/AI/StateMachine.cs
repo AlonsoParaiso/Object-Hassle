@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class StateMachine : MonoBehaviour
 {
@@ -21,7 +22,6 @@ public class StateMachine : MonoBehaviour
         {
             currentState = nextstate;
         }
-
     }
 
     private void OnDrawGizmos()
