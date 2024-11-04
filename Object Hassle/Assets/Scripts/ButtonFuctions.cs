@@ -14,4 +14,9 @@ public class ButtonFunctions : MonoBehaviour
     {
         GameManager.instance.LoadScene(sceneName);
     }
+    
+    public void CharacterSelection() 
+    {
+        GameManager.instance.SelectCharacter();
+    }
 }

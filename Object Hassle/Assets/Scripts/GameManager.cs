@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private int life;
     private KeyCode Esc = KeyCode.Escape;
     //public AudioClip SelectClip;
+    private Character character;
 
     public enum GameManagerVariables { TIME, LIFE };//para facilitar el codigo
 
@@ -32,13 +33,13 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(Esc))
         {
             SceneManager.LoadScene("Menu");
-            AudioManager.instance.ClearAudio();
+            //AudioManager.instance.ClearAudio();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
             time = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            AudioManager.instance.ClearAudio();
+            //AudioManager.instance.ClearAudio();
         }
     }
 
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
     {
         time = 0;
         SceneManager.LoadScene(sceneName);
-        AudioManager.instance.ClearAudio();
+        //AudioManager.instance.ClearAudio();
     }
 
     public void ExitGame()
@@ -76,5 +77,11 @@ public class GameManager : MonoBehaviour
     internal void LoadScene(object sceneName)
     {
         throw new NotImplementedException();
+    }
+
+    public void SelectCharacter() 
+    {
+        character = new ReyBomba(name, 10, 100);
+        Debug.Log(character);
     }
 }
