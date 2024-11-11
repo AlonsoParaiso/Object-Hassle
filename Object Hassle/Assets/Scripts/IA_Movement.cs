@@ -16,7 +16,9 @@ public class IA_Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindObjectOfType<PlayerMovement>().gameObject;
         target = player;
+
     }
 
     // Update is called once per frame

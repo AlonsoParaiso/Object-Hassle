@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonFunctions : MonoBehaviour
 {
@@ -15,8 +16,11 @@ public class ButtonFunctions : MonoBehaviour
         GameManager.instance.LoadScene(sceneName);
     }
     
-    public void CharacterSelection() 
+    public void CharacterSelection(int selection) 
     {
-        GameManager.instance.SelectCharacter();
+        FindObjectOfType<DisableButton>().GetComponent<Button>().interactable=true;
+        GameManager.instance.SelectCharacter(selection);
+        
     }
+
 }

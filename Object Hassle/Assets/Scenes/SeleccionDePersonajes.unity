@@ -252,7 +252,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1650237924}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: CharacterSelection
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 320658901}
   - component: {fileID: 320658900}
   - component: {fileID: 320658899}
+  - component: {fileID: 320658902}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -369,7 +370,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 372b827fbed254e45a18675e463e63a6, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 41e0b274c8963ee4c8cfa8981fcaf2dd, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 41e0b274c8963ee4c8cfa8981fcaf2dd, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: c4d53af67eb362143a231c1557e62641, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: c3c9d320c03fb8343a58b1b0ce9e6ac3, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -431,6 +432,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320658897}
   m_CullTransparentMesh: 1
+--- !u!114 &320658902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320658897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c860fbe20815af7419872a2e5ad7d45f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &488643257
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +740,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 610162740}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1650237924}
+        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
+        m_MethodName: CharacterSelection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &610162740
 MonoBehaviour:
   m_ObjectHideFlags: 0
