@@ -8,4 +8,9 @@ public class Mechero : Character
     {
 
     }
+
+    public override float Attack()
+    {
+        throw new System.NotImplementedException();
+    }
 }

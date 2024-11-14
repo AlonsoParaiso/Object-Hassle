@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
 
-public class Character
+public abstract class Character
 {
     private string _name;
     private GameObject _gameObject;
@@ -23,5 +23,5 @@ public class Character
     public float GetDamage() { return damage; }
     public GameObject GetGameObject() { return _gameObject; }
 
-    public virtual float Attack() { return damage; }
+    public abstract float Attack();
 }

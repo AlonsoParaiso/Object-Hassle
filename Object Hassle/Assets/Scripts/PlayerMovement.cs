@@ -39,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
         }
         //jump
 
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            GameManager.instance.character.Attack();
+        }
+
         RotatePlayer();
     }
 
