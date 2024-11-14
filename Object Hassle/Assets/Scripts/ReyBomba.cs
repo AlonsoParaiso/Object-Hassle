@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReyBomba : Character
 {
 
-    public ReyBomba(string name, float damage, int health) : base("Rey Bomba", 10, Resources.Load<GameObject>("Prefabs/reybomba"), 3) 
+    public ReyBomba(string name, float damage, int health) : base("Rey Bomba", 10, Resources.Load<GameObject>("Prefabs/ReyBomba"), 3) 
     { 
         
     }

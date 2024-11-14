@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mechero : Character
 {
-    public Mechero(string name, float damage, int health) : base("Mechero", 10, Resources.Load<GameObject>("Prefabs/Capsule"), 3)
+    public Mechero(string name, float damage, int health) : base("Mechero", 10, Resources.Load<GameObject>("Prefabs/Mechero"), 3)
     {
 
     }
