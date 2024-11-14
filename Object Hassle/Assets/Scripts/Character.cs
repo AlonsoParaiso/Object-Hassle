@@ -8,10 +8,10 @@ public abstract class Character
     private string _name;
     private GameObject _gameObject;
     protected float damage;
-    private float healht;
+    private int healht;
 
     public Character() { }
-    public Character(string name,float damage, GameObject gameObject, float healht) 
+    public Character(string name,float damage, GameObject gameObject, int healht) 
     {
         _name = name;
         this.damage = damage;
@@ -24,4 +24,8 @@ public abstract class Character
     public GameObject GetGameObject() { return _gameObject; }
 
     public abstract float Attack();
+
+    public abstract void DrawGizmos(GameObject owner);
+
+
 }

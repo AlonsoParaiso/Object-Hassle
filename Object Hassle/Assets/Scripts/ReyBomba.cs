@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReyBomba : Character
 {
 
-    public ReyBomba(string name, float damage, float health) : base("Rey Bomba", 10, Resources.Load<GameObject>("Prefabs/reybomba"), 100) 
+    public ReyBomba(string name, float damage, int health) : base("Rey Bomba", 10, Resources.Load<GameObject>("Prefabs/reybomba"), 3) 
     { 
         
     }
@@ -24,5 +24,11 @@ public class ReyBomba : Character
         }
         Debug.Log("no dar");
         return 0;
+    }
+
+    public override void DrawGizmos(GameObject owner)
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(owner.transform.position, 10);
     }
 }
