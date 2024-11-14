@@ -17,20 +17,6 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpPressed;
     private Character character;
 
-    private void Awake()
-    {
-        switch (GameManager.instance.characterIndexes[0])
-        {
-            case 0:
-                character = new ReyBomba("a", 5, 5);
-                break;
-            case 1:
-                character = new Mechero("b", 5, 5);
-                break;
-            default:
-                break;
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -122,8 +108,4 @@ public class PlayerMovement : MonoBehaviour
         character.DrawGizmos(gameObject);
     }
 
-    public Character GetCharacter()
-    {
-        return character;
-    }
 }
