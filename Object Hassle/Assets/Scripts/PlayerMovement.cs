@@ -15,7 +15,22 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private float x, z, mouseX; //input
     private bool jumpPressed;
+    private Character character;
 
+    private void Awake()
+    {
+        switch (GameManager.instance.characterIndexes[0])
+        {
+            case 0:
+                character = new ReyBomba("a", 5, 5);
+                break;
+            case 1:
+                character = new Mechero("b", 5, 5);
+                break;
+            default:
+                break;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            GameManager.instance.character.Attack();
+            character.Attack();
         }
 
         RotatePlayer();
@@ -104,6 +119,11 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(transform.position.x,
             transform.position.y - transform.localScale.y / 2, transform.position.z), sphereRadius);
 
-        GameManager.instance.character.DrawGizmos(gameObject);
+        character.DrawGizmos(gameObject);
+    }
+
+    public Character GetCharacter()
+    {
+        return character;
     }
 }

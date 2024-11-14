@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private int life;
     private KeyCode Esc = KeyCode.Escape;
     //public AudioClip SelectClip;
-    public Character character;
+    public uint[] characterIndexes;
 
     public enum GameManagerVariables { TIME, LIFE };//para facilitar el codigo
 
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;//se instancia el objecto
             DontDestroyOnLoad(gameObject);// no se destruye entre cargas
+            characterIndexes = new uint[2];
         }
         else
         {
@@ -76,19 +77,7 @@ public class GameManager : MonoBehaviour
 
     public void SelectCharacter(int Selection) 
     {
-        switch (Selection)
-        {
-            case 0:
-                character = new ReyBomba("a",5,5);
-                break;
-            case 1:
-                character = new Mechero("b",5,5);
-                break;
-            default:
-
-                break;
-        }
-                
+        characterIndexes[0] = (uint)Selection;             
     }
 
 
