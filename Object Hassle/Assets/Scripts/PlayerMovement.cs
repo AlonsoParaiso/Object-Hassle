@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
 
     private Vector3 movementVector;
-
+    private PlayerManager playerManager;
     private Rigidbody rb;
     private float x, z, mouseX; //input
     private bool jumpPressed;
@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         //gravityScale = -Mathf.Abs(gravityScale); //Valor Absoluto
+        //character = playerManager.GetCharacter();
+        character = new ReyBomba(name, 5, 5);
 
     }
 
