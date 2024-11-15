@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(transform.position.x,
             transform.position.y - transform.localScale.y / 2, transform.position.z), sphereRadius);
 
-        character.DrawGizmos(gameObject);
+        //character.DrawGizmos(gameObject);
     }
 
 }

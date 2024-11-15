@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Combate.unity
     guid: 4c4c178af5b77114f8baad905742fa77
+  - enabled: 1
+    path: Assets/Scenes/MapRetro.unity
+    guid: 5957c80e7657e294b89a56d241b7449c
   m_configObjects: {}
