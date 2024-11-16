@@ -651,6 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterIndexes: 
+  selection: {fileID: 8300000, guid: 5b6250c081e955c4c8f34b5dfd6f25ce, type: 3}
 --- !u!4 &647648459
 Transform:
   m_ObjectHideFlags: 0
