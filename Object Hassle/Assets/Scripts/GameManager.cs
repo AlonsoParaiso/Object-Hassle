@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private KeyCode Esc = KeyCode.Escape;
     //public AudioClip SelectClip;
     public uint[] characterIndexes;
+    public AudioClip selection;
 
     public enum GameManagerVariables { TIME, LIFE };//para facilitar el codigo
 
@@ -34,13 +35,13 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(Esc))
         {
             SceneManager.LoadScene("Menu");
-            //AudioManager.instance.ClearAudio();
+            AudioManager.instance.ClearAudio();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
             time = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            //AudioManager.instance.ClearAudio();
+            AudioManager.instance.ClearAudio();
         }
     }
 
@@ -77,7 +78,8 @@ public class GameManager : MonoBehaviour
 
     public void SelectCharacter(int Selection) 
     {
-        characterIndexes[0] = (uint)Selection;             
+        characterIndexes[0] = (uint)Selection;
+        AudioManager.instance.PlayAudio(selection, "selection", false, 0.5f);
     }
 
 
