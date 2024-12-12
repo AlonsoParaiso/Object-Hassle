@@ -9,7 +9,7 @@ public class Mechero : Character
 
     }
 
-    public override float Attack()
+    public override float Attack(GameObject owner)
     {
         Collider[] colliders = Physics.OverlapSphere(Vector3.forward, 5);
         for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
@@ -29,5 +29,30 @@ public class Mechero : Character
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(owner.transform.position, 5);
+    }
+
+    public override void DrawGizmosAttack(GameObject owner)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void DrawGizmosSpAttack(GameObject owner)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void DrawGizmosSuperAttack(GameObject owner)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override float SpecialAttack(GameObject owner)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override float SuperAttack(GameObject owner)
+    {
+        throw new System.NotImplementedException();
     }
 }

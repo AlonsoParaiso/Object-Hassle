@@ -23,9 +23,10 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        playerManager = FindObjectOfType<PlayerManager>();
         //gravityScale = -Mathf.Abs(gravityScale); //Valor Absoluto
-        //character = playerManager.GetCharacter();
-        character = new ReyBomba(name, 5, 5);
+        character = playerManager.GetCharacter();
+        //character = new ReyBomba(name, 5, 5);
 
     }
 
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            character.Attack();
+            character.Attack(gameObject);
         }
 
         RotatePlayer();
@@ -107,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(transform.position.x,
             transform.position.y - transform.localScale.y / 2, transform.position.z), sphereRadius);
 
-        //character.DrawGizmos(gameObject);
+        character.DrawGizmos(gameObject);
     }
 
 }

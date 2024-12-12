@@ -23,9 +23,19 @@ public abstract class Character
     public float GetDamage() { return damage; }
     public GameObject GetGameObject() { return _gameObject; }
 
-    public abstract float Attack();
+    public abstract float Attack(GameObject owner);
+
+    public abstract float SpecialAttack(GameObject owner);
+
+    public abstract float SuperAttack(GameObject owner);// programar objeto de super y cuando reciba X daño
 
     public abstract void DrawGizmos(GameObject owner);
+
+    public abstract void DrawGizmosAttack(GameObject owner);
+
+    public abstract void DrawGizmosSpAttack(GameObject owner);
+
+    public abstract void DrawGizmosSuperAttack(GameObject owner);
 
 
 }
