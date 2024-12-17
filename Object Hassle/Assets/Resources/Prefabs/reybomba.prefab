@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 3774120986603414749}
   - component: {fileID: 1540840456507483999}
   - component: {fileID: 8575830534683659102}
+  - component: {fileID: -1472576093814767322}
   m_Layer: 0
   m_Name: reybomba
   m_TagString: Untagged
@@ -356,6 +357,22 @@ MonoBehaviour:
   jumpForce: 400
   sphereRadius: 0.65
   groundName: ground
+--- !u!114 &-1472576093814767322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3415510332304906220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75598773b63b8f14e9edf82c519d45fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPool: {fileID: 0}
+  maxTime: 0
+  minHeight: 0
+  maxHeight: 0
 --- !u!1 &5040445729144488529
 GameObject:
   m_ObjectHideFlags: 0
