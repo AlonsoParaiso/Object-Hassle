@@ -49,7 +49,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         RotatePlayer();
+
+        if(Input.GetKeyDown(KeyCode.Mouse1)) 
+        {
+            character.SpecialAttack(gameObject);
+        }
+
     }
+
 
     public Vector3 GetMovementVector()
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 public class ReyBomba : Character
 {
@@ -59,6 +60,8 @@ public class ReyBomba : Character
 
     public override float SpecialAttack(GameObject owner)
     {
+
+        BombSpawn(owner.transform, owner.GetComponent<BombPool>().bombPool);
         return 0;
     }
 
@@ -76,5 +79,24 @@ public class ReyBomba : Character
         }
         Debug.Log("no dar");
         return 0;
+    }
+
+    void BombSpawn(Transform transform, GameObjectPool bombPool)
+    {
+        GameObject obj = bombPool.GimmeInactiveGameObject();
+        if (obj)
+        {
+            obj.SetActive(true);
+
+            Vector3 vectorAttack = transform.position;
+            vectorAttack.y += transform.localScale.y;
+            vectorAttack.x += transform.localScale.x;
+            obj.transform.position = vectorAttack;
+
+            BombObject bombObjectComponent = obj.GetComponent<BombObject>();
+            bombObjectComponent.ResetVelocity();
+            bombObjectComponent.ApplyParabolicThrow(transform);
+
+        }
     }
 }

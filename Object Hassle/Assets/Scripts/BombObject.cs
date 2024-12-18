@@ -9,7 +9,7 @@ public class BombObject : MonoBehaviour
     private float currentTime;
     private Rigidbody rb;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
@@ -25,8 +25,14 @@ public class BombObject : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    private void FixedUpdate()
+
+    public void ResetVelocity()
     {
-        rb.AddForce(new Vector3(1,1,0)* trowForce);
+        rb.velocity = Vector3.zero;
+    }
+
+    public void ApplyParabolicThrow(Transform ownerTransform)
+    {
+        rb.AddForce(((ownerTransform.localScale.x < 0 ? -ownerTransform.right : ownerTransform.right) + Vector3.up) * trowForce);
     }
 }

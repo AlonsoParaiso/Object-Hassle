@@ -93,7 +93,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5995707332449860548}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d3095f3d1f1a1214b8c1c679f3a06c62, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -101,7 +101,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 3
   speed: 5
-  trowForce: 5
+  trowForce: 300
 --- !u!54 &5330555402035545085
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ Rigidbody:
   m_GameObject: {fileID: 5995707332449860548}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.53
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}

@@ -24,31 +24,6 @@ public class BombPool : MonoBehaviour
             }
         }
 
-        BombSpawn();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        currentTime += Time.deltaTime;
-
-        if (currentTime >= maxTime)
-        {
-            BombSpawn();
-            currentTime = 0;
-        }
-
-    }
-
-    void BombSpawn()
-    {
-        GameObject obj = bombPool.GimmeInactiveGameObject();
-        if (obj)
-        {
-            obj.SetActive(true);
-            obj.transform.position = transform.position;
-
-            
-        }
-
+        
     }
 }
