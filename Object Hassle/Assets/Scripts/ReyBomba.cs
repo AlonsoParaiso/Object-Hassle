@@ -17,7 +17,7 @@ public class ReyBomba : Character
         Vector3 vectorAttack = owner.transform.position;
         vectorAttack.y += owner.transform.localScale.y;
         vectorAttack.x += owner.transform.localScale.x;
-        Collider [] colliders = Physics.OverlapSphere(vectorAttack, 0.5f);
+        Collider [] colliders = Physics.OverlapSphere(vectorAttack, 1f);
         for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
         {
             // y comprobamos si el elemento es suelo o no.
@@ -71,7 +71,8 @@ public class ReyBomba : Character
         for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
         {
             // y comprobamos si el elemento es suelo o no.
-            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")) //Recorre cada elemento del array para ver si tocamos suelo
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")
+                && colliders[i].GetComponent<PlayerManager>()?.GetCharacter().GetCharacterIndex() != characterIndex) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
                 return damage;

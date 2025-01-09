@@ -35,4 +35,27 @@ public class BombObject : MonoBehaviour
     {
         rb.AddForce(((ownerTransform.localScale.x < 0 ? -ownerTransform.right : ownerTransform.right) + Vector3.up) * trowForce);
     }
+
+    private void OnDisable()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1.5f);
+        for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
+        {
+            // y comprobamos si el elemento es suelo o no.
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")) //Recorre cada elemento del array para ver si tocamos suelo
+            {
+                Character character = colliders[i].GetComponent<Character>();
+                character.GetDamage();
+                Debug.Log("dar");
+            }
+        }
+        Debug.Log("no dar");
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, 1.5f);
+    }
 }

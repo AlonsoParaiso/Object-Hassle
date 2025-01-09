@@ -11,7 +11,65 @@ public class Mechero : Character
 
     public override float Attack(GameObject owner)
     {
-        Collider[] colliders = Physics.OverlapSphere(Vector3.forward, 5);
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y += owner.transform.localScale.y;
+        vectorAttack.x += owner.transform.localScale.x;
+        Collider[] colliders = Physics.OverlapSphere(vectorAttack, 1f);
+        for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
+        {
+            // y comprobamos si el elemento es suelo o no.
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")
+                && colliders[i].GetComponent<PlayerManager>().GetCharacter().GetCharacterIndex() != characterIndex) //Recorre cada elemento del array para ver si tocamos suelo
+            {
+                Debug.Log("dar");
+                return damage;
+            }
+        }
+        Debug.Log("no dar");
+        return 0;
+    }
+
+    public override void DrawGizmos(GameObject owner)
+    {
+        DrawGizmosAttack(owner);
+        DrawGizmosSpAttack(owner);
+        DrawGizmosSuperAttack(owner);
+    }
+
+    public override void DrawGizmosAttack(GameObject owner)
+    {
+        Gizmos.color = Color.yellow;
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y += owner.transform.localScale.y;
+        vectorAttack.x += owner.transform.localScale.x;
+        Gizmos.DrawWireSphere(vectorAttack, 1f);
+    }
+
+    public override void DrawGizmosSpAttack(GameObject owner)
+    {
+        Gizmos.color = Color.blue;
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y += owner.transform.localScale.y;
+        vectorAttack.x += owner.transform.localScale.x;
+        Gizmos.DrawWireSphere(vectorAttack, 0.5f);
+    }
+
+    public override void DrawGizmosSuperAttack(GameObject owner)
+    {
+        Gizmos.color = Color.magenta;
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y += owner.transform.localScale.y;
+        Gizmos.DrawWireSphere(vectorAttack, 2);
+        Gizmos.DrawWireSphere(new Vector3(vectorAttack.x + 25, vectorAttack.y, vectorAttack.z),2);
+        Gizmos.DrawLine(vectorAttack, new Vector3(vectorAttack.x + 25, vectorAttack.y, vectorAttack.z));
+    }
+
+    public override float SpecialAttack(GameObject owner)
+    {
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y += owner.transform.localScale.y;
+        vectorAttack.x += owner.transform.localScale.x;
+        Collider[] colliders = Physics.OverlapSphere(vectorAttack, 0.5f);
         for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
         {
             // y comprobamos si el elemento es suelo o no.
@@ -25,34 +83,21 @@ public class Mechero : Character
         return 0;
     }
 
-    public override void DrawGizmos(GameObject owner)
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(owner.transform.position, 5);
-    }
-
-    public override void DrawGizmosAttack(GameObject owner)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void DrawGizmosSpAttack(GameObject owner)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void DrawGizmosSuperAttack(GameObject owner)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override float SpecialAttack(GameObject owner)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override float SuperAttack(GameObject owner)
     {
-        throw new System.NotImplementedException();
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y += owner.transform.localScale.y;
+        Collider[] colliders = Physics.OverlapCapsule(vectorAttack,new Vector3( vectorAttack.x + 25, vectorAttack.y,vectorAttack.z ), 2 );
+        for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
+        {
+            // y comprobamos si el elemento es suelo o no.
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")) //Recorre cada elemento del array para ver si tocamos suelo
+            {
+                Debug.Log("dar");
+                return damage;
+            }
+        }
+        Debug.Log("no dar");
+        return 0;
     }
 }

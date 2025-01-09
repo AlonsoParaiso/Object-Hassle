@@ -9,6 +9,7 @@ public abstract class Character
     private GameObject _gameObject;
     protected float damage;
     private int healht;
+    protected uint characterIndex;
 
     public Character() { }
     public Character(string name,float damage, GameObject gameObject, int healht) 
@@ -36,6 +37,10 @@ public abstract class Character
     public abstract void DrawGizmosSpAttack(GameObject owner);
 
     public abstract void DrawGizmosSuperAttack(GameObject owner);
+
+    public void SetCharacterIndex(uint value) { this.characterIndex = value; }
+
+    public uint GetCharacterIndex() { return characterIndex; }
 
 
 }

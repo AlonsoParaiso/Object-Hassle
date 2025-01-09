@@ -21,8 +21,7 @@ public class PlayerManager : MonoBehaviour
                 break;
         }
 
-       
-
+        character.SetCharacterIndex(playerIndex);
         Instantiate(character.GetGameObject(), new Vector3(-6.23999977f, 2.32999992f, -2.50999999f), Quaternion.identity);
     }
 

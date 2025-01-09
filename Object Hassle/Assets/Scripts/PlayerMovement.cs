@@ -55,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
             character.SpecialAttack(gameObject);
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            character.SuperAttack(gameObject);
+        }
+
     }
 
 
