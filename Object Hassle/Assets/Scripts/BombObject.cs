@@ -44,8 +44,8 @@ public class BombObject : MonoBehaviour
             // y comprobamos si el elemento es suelo o no.
             if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")) //Recorre cada elemento del array para ver si tocamos suelo
             {
-                Character character = colliders[i].GetComponent<Character>();
-                character.GetDamage();
+                //colliders[i].gameObject.GetComponent<Character>().GetDamage();
+               
                 Debug.Log("dar");
             }
         }

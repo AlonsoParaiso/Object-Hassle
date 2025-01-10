@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private float x, z, mouseX; //input
     private bool jumpPressed;
+    private int doubleJump;
     private Character character;
 
 
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         z = Input.GetAxisRaw("Vertical");
         mouseX = Input.GetAxisRaw("Mouse X");
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpPressed = true;
         }
@@ -77,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
     {
         ApplySpeed();
         ApplyJumpSpeed();
+        jumpPressed = false;
     }
 
     void ApplySpeed()
@@ -89,11 +91,12 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyJumpSpeed()
     {
-        if (jumpPressed)
+        if (jumpPressed && (IsGrounded() || doubleJump < 3))
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.AddForce(transform.up * jumpForce);
-            jumpPressed = false;
+            doubleJump++;
+            
         }
     }
 
@@ -107,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
             // y comprobamos si el elemento es suelo o no.
             if (colliders[i].gameObject.layer == LayerMask.NameToLayer(groundName)) //Recorre cada elemento del array para ver si tocamos suelo
             {
+                doubleJump = 0;
                 return true;
             }
         }
