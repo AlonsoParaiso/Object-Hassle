@@ -21,7 +21,8 @@ public class ReyBomba : Character
         for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
         {
             // y comprobamos si el elemento es suelo o no.
-            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")) //Recorre cada elemento del array para ver si tocamos suelo
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")
+                && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
                 return damage;
@@ -72,7 +73,7 @@ public class ReyBomba : Character
         {
             // y comprobamos si el elemento es suelo o no.
             if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")
-                && colliders[i].GetComponent<PlayerManager>()?.GetCharacter().GetCharacterIndex() != characterIndex) //Recorre cada elemento del array para ver si tocamos suelo
+                && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
                 return damage;

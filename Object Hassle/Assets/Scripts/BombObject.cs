@@ -39,6 +39,7 @@ public class BombObject : MonoBehaviour
     private void OnDisable()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1.5f);
+        bool hasHit = false;
         for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
         {
             // y comprobamos si el elemento es suelo o no.
@@ -47,10 +48,14 @@ public class BombObject : MonoBehaviour
                 //colliders[i].gameObject.GetComponent<Character>().GetDamage();
                
                 Debug.Log("dar");
+                hasHit = true;
             }
         }
-        Debug.Log("no dar");
 
+        if (!hasHit)
+        {
+            Debug.Log("no dar");
+        }
     }
 
     private void OnDrawGizmos()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3052136940458438459}
   - component: {fileID: 7900256239166560731}
   - component: {fileID: 4778013159838376034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gema
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5214839290318757288}
   - component: {fileID: 335478511174794879}
   - component: {fileID: 1052760069401130386}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4180933886488897984}
   - component: {fileID: 1631251536146094005}
   - component: {fileID: 618973896969269185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corona
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 1540840456507483999}
   - component: {fileID: 8575830534683659102}
   - component: {fileID: -1472576093814767322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: reybomba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,6 +357,7 @@ MonoBehaviour:
   jumpForce: 400
   sphereRadius: 0.65
   groundName: ground
+  doubleJump: 0
 --- !u!114 &-1472576093814767322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,8 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bombPool: {fileID: 0}
   maxTime: 0
-  minHeight: 0
-  maxHeight: 0
+  poolTypeToSearch: 0
 --- !u!1 &5040445729144488529
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 569159270891645582}
   - component: {fileID: 4405710487258480615}
   - component: {fileID: 4029037280083493350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 1706215188227652927}
   - component: {fileID: 5474694118331794011}
   - component: {fileID: 1967157161625485271}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CosaDeLosHombros
   m_TagString: Untagged
   m_Icon: {fileID: 0}

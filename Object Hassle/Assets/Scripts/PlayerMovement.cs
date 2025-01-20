@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private float x, z, mouseX; //input
     private bool jumpPressed;
-    private int doubleJump;
+    public int doubleJump;
     private Character character;
 
 
@@ -37,6 +37,15 @@ public class PlayerMovement : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
         mouseX = Input.GetAxisRaw("Mouse X");
+
+        if (x < 0)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (x > 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -60,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             character.SuperAttack(gameObject);
         }
-
+        IsGrounded();
     }
 
 
@@ -91,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyJumpSpeed()
     {
-        if (jumpPressed && (IsGrounded() || doubleJump < 3))
+        if (jumpPressed && (IsGrounded() || doubleJump < 1))
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.AddForce(transform.up * jumpForce);
