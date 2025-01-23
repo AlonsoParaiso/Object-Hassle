@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 movementVector;
     private PlayerManager playerManager;
     private Rigidbody rb;
-    private float x, z, mouseX; //input
+    private float x, z; //input
     private bool jumpPressed;
     public int doubleJump;
     private Character character;
@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
     {
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
-        mouseX = Input.GetAxisRaw("Mouse X");
 
         if (x < 0)
         {
@@ -47,27 +46,30 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             jumpPressed = true;
         }
         //jump
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetButtonDown("Fire1"))
         {
             character.Attack(gameObject);
+            Debug.Log("cua");
         }
 
-        RotatePlayer();
 
-        if(Input.GetKeyDown(KeyCode.Mouse1)) 
+
+        if(Input.GetButtonDown("Fire2")) 
         {
             character.SpecialAttack(gameObject);
+            Debug.Log("cir");
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetButtonDown("Fire3"))
         {
             character.SuperAttack(gameObject);
+            Debug.Log("tri");
         }
         IsGrounded();
     }
@@ -78,11 +80,6 @@ public class PlayerMovement : MonoBehaviour
         return movementVector;
     }
 
-    void RotatePlayer()
-    {
-        Vector3 rotation = new Vector3(0, mouseX, 0) * rotationSpeed * Time.deltaTime;
-        transform.Rotate(rotation); // Se aplica la rotacion, tiene numero imaginarios
-    }
     private void FixedUpdate()
     {
         ApplySpeed();
