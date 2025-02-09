@@ -14,11 +14,12 @@ public class Knockback : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void OnCollisionEnter(Collision collision)
-    {
-        if ()
-            rb.AddForce((transform.forward + Vector3.up) * character.GetDamage());
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if ()
+    //        rb.AddForce((transform.forward + Vector3.up) * character.GetDamage());
+    //}
+
     void Update()
     {
        
