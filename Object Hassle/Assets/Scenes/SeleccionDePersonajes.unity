@@ -196,8 +196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterIndexes: 
-  sceneryIndexes: 
+  sceneryIndexes: 0
   selection: {fileID: 8300000, guid: 5b6250c081e955c4c8f34b5dfd6f25ce, type: 3}
+  scenaryCombat: 
 --- !u!4 &173092173
 Transform:
   m_ObjectHideFlags: 0
@@ -794,7 +795,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1292,6 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cdc6e66dd59144fae3431032b24bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scenes: 0
 --- !u!4 &1650237925
 Transform:
   m_ObjectHideFlags: 0
