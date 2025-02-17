@@ -8,12 +8,12 @@ public abstract class Character
     private string _name;
     private GameObject _gameObject;
     protected float damage;
-    private int healht;
+    private float healht;
     private float damageReceived;
     protected uint characterIndex;
 
     public Character() { }
-    public Character(string name,float damage, GameObject gameObject, int healht) 
+    public Character(string name,float damage, GameObject gameObject, float healht) 
     {
         _name = name;
         this.damage = damage;
@@ -45,7 +45,14 @@ public abstract class Character
 
     public uint GetCharacterIndex() { return characterIndex; }
 
-    
+    public void Knockback(Rigidbody rb, Transform transform,float damage)
+    {
+        rb.AddForce(((transform.localScale.x < 0 ? transform.right : -transform.right) + Vector3.up) * (damage * GetHealth()));
+        healht += damage;
+
+    }
+
+
 
 
 }

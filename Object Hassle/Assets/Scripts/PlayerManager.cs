@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     private Character character;
     public uint playerIndex = 0;
-    private void Awake()
+    private void Start()
     {
         switch (GameManager.instance.characterIndexes[playerIndex])
         {
@@ -22,7 +22,8 @@ public class PlayerManager : MonoBehaviour
         }
 
         character.SetCharacterIndex(playerIndex);
-        Instantiate(character.GetGameObject(), new Vector3(-6.23999977f, 2.32999992f, -2.50999999f), Quaternion.identity);
+        GameObject nPlayer = Instantiate(character.GetGameObject(), new Vector3(-6.23999977f, 2.32999992f, -2.50999999f), Quaternion.identity);
+        nPlayer.AddComponent<CharacterReference>().character = character;
     }
 
     // Start is called before the first frame update
