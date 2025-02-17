@@ -26,6 +26,8 @@ public class Mechero : Character
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
+                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), playerManagerEnemy.transform, damage);
                 return damage;
             }
         }
@@ -82,6 +84,8 @@ public class Mechero : Character
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
+                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), playerManagerEnemy.transform, damage);
                 return damage;
             }
         }
@@ -101,6 +105,8 @@ public class Mechero : Character
             if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player") && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
+                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), playerManagerEnemy.transform, damage);
                 return damage;
             }
         }

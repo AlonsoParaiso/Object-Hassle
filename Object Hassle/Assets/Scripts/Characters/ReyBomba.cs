@@ -26,7 +26,7 @@ public class ReyBomba : Character
             {
                 Debug.Log("dar");
                 CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
-                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), playerManagerEnemy.transform, damage);
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, damage);
                 return damage;
             }
         }
@@ -78,6 +78,8 @@ public class ReyBomba : Character
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
+                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, damage);
                 return damage;
             }
         }

@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     public uint playerIndex = 0;
     private void Start()
     {
+        Input.GetJoystickNames();
         switch (GameManager.instance.characterIndexes[playerIndex])
         {
             case 0:

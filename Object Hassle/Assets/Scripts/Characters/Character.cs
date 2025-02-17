@@ -47,7 +47,8 @@ public abstract class Character
 
     public void Knockback(Rigidbody rb, Transform transform,float damage)
     {
-        rb.AddForce(((transform.localScale.x < 0 ? transform.right : -transform.right) + Vector3.up) * (damage * GetHealth()));
+        Vector3 force = ((transform.localScale.x < 0 ? -Vector3.right : Vector3.right) + Vector3.up) *(damage * GetHealth());
+        rb.AddForce(force);
         healht += damage;
 
     }
