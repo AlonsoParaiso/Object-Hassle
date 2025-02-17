@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private KeyCode Esc = KeyCode.Escape;
     //public AudioClip SelectClip;
     public uint[] characterIndexes;
+    public uint[] sceneryIndexes;
     public AudioClip selection;
 
     public enum GameManagerVariables { TIME, LIFE };//para facilitar el codigo
@@ -82,5 +83,8 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlayAudio(selection, "selection", false, 0.5f);
     }
 
-
+    public void SelectScenery(int Selection)
+    {
+        sceneryIndexes[0] = (uint)Selection;
+    }
 }

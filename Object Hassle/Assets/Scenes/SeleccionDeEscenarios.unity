@@ -280,10 +280,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: efa468760d8b8bb428a3d5283ab30dca, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: c08959abba313e443aae8a40eb1c52f2, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: c08959abba313e443aae8a40eb1c52f2, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: d84be7db34b002e4a86f03a7b25b7187, type: 3}
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -297,7 +297,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1650237924}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
-        m_MethodName: CharacterSelection
+        m_MethodName: ScenerySelection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d84be7db34b002e4a86f03a7b25b7187, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f1556c19f7242bd4eaf582e6d82f2882, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -437,7 +437,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SeleccionDeEscenarios
+          m_StringArgument: MapRetro
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &320658900
@@ -772,10 +772,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: eec1881dc49400643a8d84bdc1ee6f73, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: adf7b52749a0bc744bcebd83f35b6b86, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: adf7b52749a0bc744bcebd83f35b6b86, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: a9a163e0fcd20ca4b86859b5cc8699c3, type: 3}
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -789,7 +789,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1650237924}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
-        m_MethodName: CharacterSelection
+        m_MethodName: ScenerySelection
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a9a163e0fcd20ca4b86859b5cc8699c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f224cab61d246994993f25256bd1a3ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1292,6 +1292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cdc6e66dd59144fae3431032b24bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scenes: 0
 --- !u!4 &1650237925
 Transform:
   m_ObjectHideFlags: 0

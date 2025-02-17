@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ButtonFunctions : MonoBehaviour
 {
+    public int scenes;
     public void ExitGame()//hace que salga del juego
     {
         GameManager.instance.ExitGame();
@@ -20,7 +21,17 @@ public class ButtonFunctions : MonoBehaviour
     {
         FindObjectOfType<DisableButton>().GetComponent<Button>().interactable=true;
         GameManager.instance.SelectCharacter(selection);
-        
+    }
+    
+    public void ScenerySelection(int selection) 
+    {
+        FindObjectOfType<DisableButton>().GetComponent<Button>().interactable=true;
+        GameManager.instance.SelectScenery(selection);
+    }
+
+    public void LoadCombatScene() 
+    {
+        //GameManager.instance.LoadScene(ScenerySelection(selection.ToString));
     }
 
 }
