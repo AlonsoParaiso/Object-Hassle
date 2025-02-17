@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private float x, z; //input
     private bool jumpPressed;
     public int doubleJump;
-    private Character character;
+    public Character character;
 
 
     // Start is called before the first frame update

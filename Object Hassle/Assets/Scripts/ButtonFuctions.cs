@@ -23,9 +23,29 @@ public class ButtonFunctions : MonoBehaviour
         GameManager.instance.SelectCharacter(selection);
     }
 
-    public void ScenerySelection(string selection)
+    public void ScenerySelection(int selection)
     {
-        GameManager.instance.SelectScenery(selection);
+        switch (selection)
+        {
+
+            case 0:
+                GameManager.instance.scenaryCombat = "MapRetro";
+                FindObjectOfType<DisableButton>().GetComponent<Button>().interactable = true;
+                break;
+            case 1:
+                GameManager.instance.scenaryCombat = "SmapaRetroS";
+                FindObjectOfType<DisableButton>().GetComponent<Button>().interactable = true;
+                break;
+            default:
+                break;
+
+        }
+
+    }
+    public void SelectScenary()
+    {
+        GameManager.instance.SelectScenery();
+
     }
 
 
