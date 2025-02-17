@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class _SceneManager : MonoBehaviour
 {
-    public uint sceneryIndex = 0;
+    public int sceneryIndex = 0;
 
     private void Awake()
     {
-        switch (GameManager.instance.sceneryIndexes[sceneryIndex])
+        switch (GameManager.instance.sceneryIndexes)
         {
             case 0:
                 SceneManager.LoadScene("MapRetro");

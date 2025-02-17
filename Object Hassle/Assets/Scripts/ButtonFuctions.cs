@@ -16,22 +16,17 @@ public class ButtonFunctions : MonoBehaviour
     {
         GameManager.instance.LoadScene(sceneName);
     }
-    
-    public void CharacterSelection(int selection) 
+
+    public void CharacterSelection(int selection)
     {
-        FindObjectOfType<DisableButton>().GetComponent<Button>().interactable=true;
+        FindObjectOfType<DisableButton>().GetComponent<Button>().interactable = true;
         GameManager.instance.SelectCharacter(selection);
     }
-    
-    public void ScenerySelection(int selection) 
+
+    public void ScenerySelection(string selection)
     {
-        FindObjectOfType<DisableButton>().GetComponent<Button>().interactable=true;
         GameManager.instance.SelectScenery(selection);
     }
 
-    public void LoadCombatScene() 
-    {
-        //GameManager.instance.LoadScene(ScenerySelection(selection.ToString));
-    }
 
 }
