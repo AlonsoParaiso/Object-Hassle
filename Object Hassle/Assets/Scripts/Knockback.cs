@@ -13,7 +13,7 @@ public class Knockback : MonoBehaviour
         character=GetComponent<Character>();
     }
 
-    // Update is called once per frame
+    
     //private void OnCollisionEnter(Collision collision)
     //{
     //    if ()

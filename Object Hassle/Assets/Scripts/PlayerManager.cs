@@ -12,10 +12,10 @@ public class PlayerManager : MonoBehaviour
         switch (GameManager.instance.characterIndexes[playerIndex])
         {
             case 0:
-                character = new ReyBomba("a", 10, -2);
+                character = new ReyBomba("a", 10, 0);
                 break;
             case 1:
-                character = new Mechero("b", 10, -2);
+                character = new Mechero("b", 8, 0);
                 break;
             default:
                 break;

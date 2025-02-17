@@ -7,7 +7,7 @@ using static UnityEngine.UI.GridLayoutGroup;
 public class ReyBomba : Character
 {
 
-    public ReyBomba(string name, float damage, int health) : base("Rey Bomba", 10, Resources.Load<GameObject>("Prefabs/ReyBomba"), 3) 
+    public ReyBomba(string name, float damage, int health) : base("Rey Bomba", 10, Resources.Load<GameObject>("Prefabs/ReyBomba"), 0) 
     { 
         
     }
