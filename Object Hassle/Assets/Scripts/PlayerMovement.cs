@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
         //transform.localEulerAngles = new Vector3 (0f, 120f, 0f);
 
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
         PlayerManager[] managers = FindObjectsOfType<PlayerManager>(); 
         foreach(PlayerManager pm in managers)
@@ -55,30 +55,52 @@ public class PlayerMovement : MonoBehaviour
         if (x < 0)
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            animator.SetBool("IsWalking", true);
         }
         else if (x > 0)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            animator.SetBool("IsWalking", true);
         }
+
+        else
+        {
+            animator.SetBool("IsWalking", false);
+
+        }
+
+
 
         if (Input.GetButtonDown("Jump"))
         {
+            animator.SetBool("IsJumping", true);
             jumpPressed = true;
         }
+
         //jump
 
         if (Input.GetButtonDown("Fire1"))
         {
+            animator.SetBool("IsAttacking", true);
             character.Attack(gameObject);
             Debug.Log("cua");
+        }
+        else
+        {
+            animator.SetBool("IsAttacking", false);
         }
 
 
 
         if(Input.GetButtonDown("Fire2")) 
         {
+            animator.SetBool("IsSpecial", true);
             character.SpecialAttack(gameObject);
             Debug.Log("cir");
+        }
+        else
+        {
+            animator.SetBool("IsSpecial", false);
         }
 
         if (Input.GetButtonDown("Fire3"))
@@ -104,6 +126,22 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplySpeed()
     {
+        //if(rb.velocity >= Vector3.zero)
+        //{
+        //    animator.SetBool("IsWalking", true);
+
+        //}
+
+        //else if(rb.velocity.z >= 1)
+        //{
+        //    animator.SetBool("IsWalking", true);
+        //}
+
+        //else
+        //{
+        //    animator.SetBool("IsWalking", false);
+        //}
+
         rb.velocity = (transform.forward * speed * z) + (transform.right * speed * x) +
             new Vector3(0, rb.velocity.y, 0); //Gravedad base de Unity.
         //+ (transform.up * gravityScale); //Gravedad constante no realista
@@ -131,11 +169,12 @@ public class PlayerMovement : MonoBehaviour
             // y comprobamos si el elemento es suelo o no.
             if (colliders[i].gameObject.layer == LayerMask.NameToLayer(groundName)) //Recorre cada elemento del array para ver si tocamos suelo
             {
+                animator.SetBool("IsJumping", false);
                 doubleJump = 0;
                 return true;
             }
         }
-
+        animator.SetBool("IsJumping", true);
         return false;
     }
 
