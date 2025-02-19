@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public float speed, runningSpeed, rotationSpeed, jumpForce, sphereRadius;//,gravityScale;
 
     public string groundName;
-
     private Animator animator;
 
     private Vector3 movementVector;
@@ -19,14 +18,10 @@ public class PlayerMovement : MonoBehaviour
     public Character character;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
-
-        //transform.Rotate(0, 120, 0);
-
-        //transform.localEulerAngles = new Vector3 (0f, 120f, 0f);
-
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
         PlayerManager[] managers = FindObjectsOfType<PlayerManager>(); 
@@ -38,8 +33,6 @@ public class PlayerMovement : MonoBehaviour
                 break;
             }
         }
-
-        //gravityScale = -Mathf.Abs(gravityScale); //Valor Absoluto
         character = playerManager.GetCharacter();
         //character = new ReyBomba(name, 5, 5);
 
@@ -49,8 +42,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         x = Input.GetAxisRaw(playerManager.playerIndex == 0 ? "Horizontal" : "Horizontal 2");
-//      x = Input.GetAxisRaw("Horizontal");
-        z = Input.GetAxisRaw("Vertical");
+        z = Input.GetAxisRaw(playerManager.playerIndex == 0 ? "Vertical" : "Vertical 2");
 
         if (x < 0)
         {
@@ -71,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
         {
             animator.SetBool("IsJumping", true);
             jumpPressed = true;
@@ -79,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
         //jump
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire1" : "Fire1 2"))
         {
             animator.SetBool("IsAttacking", true);
             character.Attack(gameObject);
@@ -92,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if(Input.GetButtonDown("Fire2")) 
+        if(Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire2" : "Fire2 2")) 
         {
             animator.SetBool("IsSpecial", true);
             character.SpecialAttack(gameObject);
@@ -103,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsSpecial", false);
         }
 
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire3" : "Fire3 2"))
         {
             character.SuperAttack(gameObject);
             Debug.Log("tri");
@@ -126,22 +118,6 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplySpeed()
     {
-        //if(rb.velocity >= Vector3.zero)
-        //{
-        //    animator.SetBool("IsWalking", true);
-
-        //}
-
-        //else if(rb.velocity.z >= 1)
-        //{
-        //    animator.SetBool("IsWalking", true);
-        //}
-
-        //else
-        //{
-        //    animator.SetBool("IsWalking", false);
-        //}
-
         rb.velocity = (transform.forward * speed * z) + (transform.right * speed * x) +
             new Vector3(0, rb.velocity.y, 0); //Gravedad base de Unity.
         //+ (transform.up * gravityScale); //Gravedad constante no realista
@@ -186,5 +162,4 @@ public class PlayerMovement : MonoBehaviour
 
         character.DrawGizmos(gameObject);
     }
-
 }
