@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Interfaz : MonoBehaviour
+public class PlayerUI : MonoBehaviour
 {
-    public TMP_Text Lifepercent1;
+    public TMP_Text Lifepercent;
     public GameManager.GameManagerVariables variable;
 
 
@@ -19,7 +19,8 @@ public class Interfaz : MonoBehaviour
     void Update()
     {
         GameManager.instance.GetLifes();
-        Lifepercent1.text = "Lifes: " + GameManager.instance.GetLifes();
+        Lifepercent.text = "Lifes: " + GameManager.instance.GetLifes();
+        
 
     }
 }
