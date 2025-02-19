@@ -8,13 +8,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance; //el game manager controla las variables del juego y es accesible a todos
     private float time;
-    private int life;
+    private float life;
+
     private KeyCode Esc = KeyCode.Escape;
     //public AudioClip SelectClip;
     public uint[] characterIndexes;
     public int sceneryIndexes;
     public AudioClip selection;
     public string scenaryCombat;
+    public Character character;
+    
 
 
     public enum GameManagerVariables { TIME, LIFE };//para facilitar el codigo
@@ -55,10 +58,7 @@ public class GameManager : MonoBehaviour
     }
 
     // getter
-    public int GetPoints()
-    {
-        return life;
-    }
+   
 
     // setter
     public void SetPoints(int value)
@@ -89,5 +89,11 @@ public class GameManager : MonoBehaviour
     {
         LoadScene(scenaryCombat);
         AudioManager.instance.PlayAudio(selection, "selection", false, 0.5f);
+    }
+    public float GetLifes()
+    {
+        life=character.GetHealth();
+        return life;
+        
     }
 }
