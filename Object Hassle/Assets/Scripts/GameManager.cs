@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
     }
     public float GetLifes()
     {
-        life=character.GetHealth();
+        //life=character.GetHealth();
         return life;
         
     }

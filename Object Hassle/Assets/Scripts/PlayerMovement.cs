@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //transform.rotation = Quaternion.identity;
+
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         PlayerManager[] managers = FindObjectsOfType<PlayerManager>(); 

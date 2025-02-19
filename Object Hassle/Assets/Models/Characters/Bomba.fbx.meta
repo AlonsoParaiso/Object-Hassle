@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb97fcd01cae7fd4d8527ab98f6a7640
+guid: 55c9e9ec72fd73743a27526ae6c36321
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -37,7 +37,7 @@ ModelImporter:
       takeName: Armature|Attack
       internalID: 4723146814002874508
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 21
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -66,7 +66,7 @@ ModelImporter:
       takeName: Armature|Idle
       internalID: -8945691123924629249
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 59
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -153,7 +153,7 @@ ModelImporter:
       takeName: Armature|Super
       internalID: 6617596413025909635
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -178,11 +178,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Ulti
-      takeName: Armature|Ulti
-      internalID: -7318091273373110286
+      name: Armature|Ult
+      takeName: Armature|Ult
+      internalID: -3045753187598810034
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 59
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -211,7 +211,7 @@ ModelImporter:
       takeName: Armature|Walk
       internalID: 8349542763059015795
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
