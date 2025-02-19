@@ -23,7 +23,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 
-        //transform.rotation = Quaternion.identity;
+        //transform.Rotate(0, 120, 0);
+
+        //transform.localEulerAngles = new Vector3 (0f, 120f, 0f);
 
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
