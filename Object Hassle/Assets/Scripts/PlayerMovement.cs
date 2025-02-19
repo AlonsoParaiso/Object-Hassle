@@ -24,7 +24,16 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        playerManager = FindObjectOfType<PlayerManager>();
+        PlayerManager[] managers = FindObjectsOfType<PlayerManager>(); 
+        foreach(PlayerManager pm in managers)
+        {
+            if(pm.playerIndex == GetComponent<CharacterReference>().playerIndex)
+            {
+                this.playerManager = pm;
+                break;
+            }
+        }
+
         //gravityScale = -Mathf.Abs(gravityScale); //Valor Absoluto
         character = playerManager.GetCharacter();
         //character = new ReyBomba(name, 5, 5);
@@ -34,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = Input.GetAxisRaw("Horizontal");
+        x = Input.GetAxisRaw(playerManager.playerIndex == 0 ? "Horizontal" : "Horizontal 2");
+//      x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
 
         if (x < 0)

@@ -25,6 +25,8 @@ public class PlayerManager : MonoBehaviour
         character.SetCharacterIndex(playerIndex);
         GameObject nPlayer = Instantiate(character.GetGameObject(), new Vector3(-6.23999977f, 2.32999992f, -2.50999999f), Quaternion.identity);
         nPlayer.AddComponent<CharacterReference>().character = character;
+        nPlayer.GetComponent<CharacterReference>().playerIndex = (int)playerIndex;
+        nPlayer.GetComponent<CharacterReference>().UpdateName();
     }
 
     // Start is called before the first frame update
