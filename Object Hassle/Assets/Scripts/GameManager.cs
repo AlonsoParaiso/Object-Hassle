@@ -81,19 +81,19 @@ public class GameManager : MonoBehaviour
 
     public void SelectCharacter(int Selection)
     {
-        characterIndexes[0] = (uint)Selection;
+        characterIndexes[0] = (uint)Selection;//selecciona el persoanje elegido
         AudioManager.instance.PlayAudio(selection, "selection", false, 0.5f);
     }
 
     public void SelectScenery()
     {
-        LoadScene(scenaryCombat);
+        LoadScene(scenaryCombat);//selencionna la escena la cual has elegido
         AudioManager.instance.PlayAudio(selection, "selection", false, 0.5f);
     }
-    public float GetLifes()
-    {
-        //life=character.GetHealth();
-        return life;
+    //public float GetLifes()
+    //{
+    //    //life=character.GetHealth();
+    //    //return life;
         
-    }
+    //}
 }

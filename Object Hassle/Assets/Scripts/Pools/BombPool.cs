@@ -13,7 +13,7 @@ public class BombPool : MonoBehaviour
 
     private void Start()
     {
-        GameObjectPool[] pools = FindObjectsOfType<GameObjectPool>();
+        GameObjectPool[] pools = FindObjectsOfType<GameObjectPool>();//busca el objecto en la scene de gameobjectPool
 
         foreach (GameObjectPool pool in pools)
         {

@@ -9,7 +9,7 @@ public class DeadZone : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>())
         {
-            other.transform.position = spawn;
+            other.transform.position = spawn;//hace que spawnee donde se le diga
         }
     }
 }

@@ -45,7 +45,7 @@ public abstract class Character
 
     public uint GetCharacterIndex() { return characterIndex; }
 
-    public void Knockback(Rigidbody rb, Transform transform,float damage)
+    public void Knockback(Rigidbody rb, Transform transform,float damage)//hace que cadda vez que le pegues vaya yendose más para atrás cada vez
     {
         Vector3 force = ((transform.localScale.x < 0 ? -Vector3.right : Vector3.right) + Vector3.up) *(damage * GetHealth());
         rb.AddForce(force);
