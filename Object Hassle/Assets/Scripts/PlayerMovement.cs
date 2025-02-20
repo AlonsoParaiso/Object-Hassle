@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerManager playerManager;
     private Rigidbody rb;
     private float x, z; //input
-    private bool jumpPressed;
+    private bool jumpPressed, nospeed;
     public int doubleJump;
     public Character character;
 
@@ -111,7 +111,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ApplySpeed();
+        if (!nospeed) 
+            ApplySpeed();
         ApplyJumpSpeed();
         jumpPressed = false;
     }
@@ -161,5 +162,17 @@ public class PlayerMovement : MonoBehaviour
             transform.position.y - transform.localScale.y / 2, transform.position.z), sphereRadius);
 
         character.DrawGizmos(gameObject);
+    }
+
+    IEnumerator kk()
+    {
+        nospeed=true;
+        yield return new WaitForSeconds(1);
+        nospeed = false;
+    }
+
+    public void kk1()
+    {
+        StartCoroutine(kk());
     }
 }
