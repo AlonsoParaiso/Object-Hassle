@@ -66,20 +66,12 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-<<<<<<< Updated upstream
         //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
         //{
         //    animator.SetBool("IsJumping", true);
+              //AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
         //    jumpPressed = true;
         //}
-=======
-        if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
-        {
-            animator.SetBool("IsJumping", true);
-            AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
-            jumpPressed = true;
-        }
->>>>>>> Stashed changes
 
         //jump
 
@@ -122,8 +114,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (callbackContext.performed)
         {
-        animator.SetBool("IsJumping", true);
-        jumpPressed = true;
+            animator.SetBool("IsJumping", true);
+            AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
+            jumpPressed = true;
         }
     }
 

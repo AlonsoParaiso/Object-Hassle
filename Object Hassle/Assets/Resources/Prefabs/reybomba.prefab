@@ -106,19 +106,11 @@ MonoBehaviour:
   sphereRadius: 0.65
   groundName: ground
   doubleJump: 0
-<<<<<<< Updated upstream
-  audioPunch: {fileID: 0}
-  audioSpecial: {fileID: 0}
-  audioJump: {fileID: 0}
-  audioUlt: {fileID: 0}
-  audioWalk: {fileID: 0}
-=======
   audioAttack: {fileID: 8300000, guid: ebd970240cc7bc84b99e581dea5af28f, type: 3}
   audioSpecial: {fileID: 8300000, guid: f7aec7c1d35768040852ca9cd91f22ca, type: 3}
   audioJump: {fileID: 8300000, guid: bade478cf80aafd4295e0143c04bf75e, type: 3}
   audioUlt: {fileID: 8300000, guid: 54ea3c6cc53031b489a460c6520784f7, type: 3}
   audioWalk: {fileID: 8300000, guid: 4547952758c8bfd41836293b44233f25, type: 3}
->>>>>>> Stashed changes
 --- !u!114 &-1472576093814767322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +167,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c6fc2be7-f9c8-4eee-85b4-3a0de37d5078
     m_ActionName: Player/Jump[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 78bbd7f9-01f3-413f-b8a9-d50f1af877bb
+    m_ActionName: Player/Move
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
