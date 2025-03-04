@@ -5,6 +5,7 @@ using UnityEngine;
 public class BombObject : MonoBehaviour
 {
     public float maxTime, speed, trowForce;
+    public AudioClip explosionAudio;
 
     private float currentTime;
     private Rigidbody rb;
@@ -48,12 +49,14 @@ public class BombObject : MonoBehaviour
                 //colliders[i].gameObject.GetComponent<Character>().GetDamage();
                
                 Debug.Log("dar");
+                AudioManager.instance.PlayAudio(explosionAudio, "explosion", false, 1f);
                 hasHit = true;
             }
         }
 
         if (!hasHit)
         {
+            AudioManager.instance.PlayAudio(explosionAudio, "explosion", false, 1f);
             Debug.Log("no dar");
         }
     }

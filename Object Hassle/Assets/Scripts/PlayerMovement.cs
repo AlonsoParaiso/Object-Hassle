@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public int doubleJump;
     public Character character;
 
-    public AudioClip audioPunch, audioSpecial, audioJump, audioUlt, audioWalk;
+    public AudioClip audioAttack, audioSpecial, audioJump, audioUlt, audioWalk;
 
 
     // Start is called before the first frame update
@@ -49,11 +49,13 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             animator.SetBool("IsWalking", true);
+            AudioManager.instance.PlayAudio(audioWalk, "Walk", false, 0.1f);
         }
         else if (x > 0)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             animator.SetBool("IsWalking", true);
+            AudioManager.instance.PlayAudio(audioWalk, "Walk", false, 0.1f);
         }
 
         else
@@ -64,11 +66,20 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+<<<<<<< Updated upstream
         //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
         //{
         //    animator.SetBool("IsJumping", true);
         //    jumpPressed = true;
         //}
+=======
+        if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
+        {
+            animator.SetBool("IsJumping", true);
+            AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
+            jumpPressed = true;
+        }
+>>>>>>> Stashed changes
 
         //jump
 
@@ -76,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsAttacking", true);
             character.Attack(gameObject);
+            AudioManager.instance.PlayAudio(audioAttack, "Attack", false, 1f);
             Debug.Log("cua");
         }
         else
@@ -89,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsSpecial", true);
             character.SpecialAttack(gameObject);
+            AudioManager.instance.PlayAudio(audioSpecial, "Special", false, 0.8f);
             Debug.Log("cir");
         }
         else
@@ -99,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire3" : "Fire3 2"))
         {
             character.SuperAttack(gameObject);
+            AudioManager.instance.PlayAudio(audioUlt, "Ulti", false, 1f);
             Debug.Log("tri");
         }
         IsGrounded();

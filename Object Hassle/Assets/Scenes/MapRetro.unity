@@ -154,7 +154,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 0db1f5e4e8fdfe241aa49ea5e26988fb, type: 3}
   isLoop: 1
   playOnStart: 1
-  volume: 0.5
+  volume: 0.3
   gameObjectName: BackgroundMusicCombat
 --- !u!4 &25843921
 Transform:
@@ -518,6 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {x: 0, y: 7.3, z: -2.51}
+  deathAudio: {fileID: 0}
 --- !u!65 &699533322
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -585,6 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {x: 0, y: 7.3, z: -2.51}
+  deathAudio: {fileID: 0}
 --- !u!65 &827022455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1058,6 +1060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {x: 0, y: 7.3, z: -2.51}
+  deathAudio: {fileID: 0}
 --- !u!65 &1292791501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1253,6 +1256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {x: 0, y: 7.3, z: -2.51}
+  deathAudio: {fileID: 0}
 --- !u!65 &1680818838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1543,7 +1547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lifepercent: {fileID: 2048663808}
-  variable: 1
+  characterIndexes: 0
 --- !u!1001 &3880056791539047669
 PrefabInstance:
   m_ObjectHideFlags: 0
