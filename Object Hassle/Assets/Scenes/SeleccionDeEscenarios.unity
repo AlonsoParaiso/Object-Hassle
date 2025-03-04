@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 274486180}
   - component: {fileID: 274486179}
   m_Layer: 5
-  m_Name: Player1
+  m_Name: Map0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 610162740}
   - component: {fileID: 610162739}
   m_Layer: 5
-  m_Name: Player2
+  m_Name: Map1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public int doubleJump;
     public Character character;
 
+    public AudioClip audioPunch, audioSpecial, audioJump, audioUlt, audioWalk;
 
 
     // Start is called before the first frame update

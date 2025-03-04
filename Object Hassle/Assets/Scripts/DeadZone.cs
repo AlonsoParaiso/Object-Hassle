@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeadZone : MonoBehaviour
 {
     public Vector3 spawn;
+    public AudioClip deathAudio;
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerMovement>())
