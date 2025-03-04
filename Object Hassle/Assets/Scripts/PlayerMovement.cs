@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -35,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         character = playerManager.GetCharacter();
-        //character = new ReyBomba(name, 5, 5);
 
     }
 
@@ -64,11 +64,11 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
-        {
-            animator.SetBool("IsJumping", true);
-            jumpPressed = true;
-        }
+        //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
+        //{
+        //    animator.SetBool("IsJumping", true);
+        //    jumpPressed = true;
+        //}
 
         //jump
 
@@ -104,6 +104,15 @@ public class PlayerMovement : MonoBehaviour
         IsGrounded();
     }
 
+    public void JumpInput(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.performed)
+        {
+        animator.SetBool("IsJumping", true);
+        jumpPressed = true;
+        }
+    }
+
 
     public Vector3 GetMovementVector()
     {
@@ -113,17 +122,18 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (!nospeed) 
-            ApplySpeed();
+        ApplySpeed();
         ApplyJumpSpeed();
         jumpPressed = false;
     }
 
     void ApplySpeed()
     {
-        rb.velocity = (transform.forward * speed * z) + (transform.right * speed * x) +
-            new Vector3(0, rb.velocity.y, 0); //Gravedad base de Unity.
+        //rb.velocity = (transform.forward * speed * z) + (transform.right * speed * x) +
+        //    new Vector3(0, rb.velocity.y, 0); //Gravedad base de Unity.
         //+ (transform.up * gravityScale); //Gravedad constante no realista
         //rb.AddForce(transform.up * gravityScale);
+        rb.AddForce(new Vector3(movementVector.x, 0, movementVector.z) * speed);
     }
 
     void ApplyJumpSpeed()
