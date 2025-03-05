@@ -47,8 +47,11 @@ public class PlayerMovement : MonoBehaviour
     {
         bool isMyController = playerInput.actions["Move"].GetBindingIndexForControl(playerInput.actions["Move"].activeControl) == playerManager.playerIndex;
         animator.SetBool("IsWalking", false);
-        if(!isMyController)
+        if (!isMyController)
+        {
+            animator.SetBool("IsWalking", false);
             return;
+        }
         movementVector = playerInput.actions["Move"].ReadValue<Vector2>();
 
 
