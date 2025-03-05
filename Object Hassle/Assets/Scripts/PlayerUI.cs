@@ -10,7 +10,6 @@ public class PlayerUI : MonoBehaviour
 
     public int characterIndexes;
     private PlayerManager playerManager;
-    private Character character; 
 
 
     // Start is called before the first frame update
@@ -19,20 +18,19 @@ public class PlayerUI : MonoBehaviour
         PlayerManager[] managers = FindObjectsOfType<PlayerManager>();
         foreach (PlayerManager pm in managers)
         {
-            if (pm.playerIndex == GetComponent<CharacterReference>().playerIndex)
+            if (pm.playerIndex ==characterIndexes)
             {
                 this.playerManager = pm;
                 break;
             }
         }
-        character = playerManager.GetCharacter();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-       
+       Lifepercent.text=playerManager.GetCharacter().GetHealth().ToString();
 
     }
 }
