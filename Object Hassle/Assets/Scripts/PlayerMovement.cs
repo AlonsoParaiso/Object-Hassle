@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,9 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public string groundName;
     private Animator animator;
 
-    private Vector3 movementVector;
+    private Vector2 movementVector;
     private PlayerManager playerManager;
     private Rigidbody rb;
+    private PlayerInput playerInput;
+
     private float x, z; //input
     private bool jumpPressed, nospeed;
     public int doubleJump;
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
+        playerInput = GetComponent<PlayerInput>();
         PlayerManager[] managers = FindObjectsOfType<PlayerManager>(); 
         foreach(PlayerManager pm in managers)
         {
@@ -42,8 +46,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = Input.GetAxisRaw(playerManager.playerIndex == 0 ? "Horizontal" : "Horizontal 2");
-        z = Input.GetAxisRaw(playerManager.playerIndex == 0 ? "Vertical" : "Vertical 2");
+        bool isMyController = playerInput.actions["Move"].GetBindingIndexForControl(playerInput.actions["Move"].activeControl) == playerManager.playerIndex;
+        if(!isMyController)
+            return;
+        movementVector = playerInput.actions["Move"].ReadValue<Vector2>();
+
 
         if (x < 0)
         {
@@ -112,7 +119,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void JumpInput(InputAction.CallbackContext callbackContext)
     {
-        if (callbackContext.performed)
+        // Gamepad.all[(int)playerManager.playerIndex].buttonSouth.IsPressed()
+        bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        if (callbackContext.performed && isMyController)
         {
             animator.SetBool("IsJumping", true);
             AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
@@ -140,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
         //    new Vector3(0, rb.velocity.y, 0); //Gravedad base de Unity.
         //+ (transform.up * gravityScale); //Gravedad constante no realista
         //rb.AddForce(transform.up * gravityScale);
-        rb.AddForce(new Vector3(movementVector.x, 0, movementVector.z) * speed);
+        rb.AddForce(new Vector3(movementVector.x, 0, 0) * speed);
     }
 
     void ApplyJumpSpeed()

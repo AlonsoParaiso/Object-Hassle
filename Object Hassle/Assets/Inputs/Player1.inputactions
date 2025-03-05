@@ -18,7 +18,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "78bbd7f9-01f3-413f-b8a9-d50f1af877bb",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -37,37 +37,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "ad0368d5-9992-4138-8394-24e3e699387f",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "cfd5b3f8-b490-4f1d-9b8c-17a0e845a345",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "1bb09978-fae6-458e-9d4a-93cc63670d18",
-                    "path": "<Gamepad>/leftStick/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "b586330e-14c7-4c30-b402-d854dcd0df8f",
-                    "path": "<Gamepad>/leftStick/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }
