@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private PlayerInput playerInput;
 
-    private float x, z; //input
     private bool jumpPressed, nospeed;
     public int doubleJump;
     public Character character;
@@ -47,29 +46,27 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         bool isMyController = playerInput.actions["Move"].GetBindingIndexForControl(playerInput.actions["Move"].activeControl) == playerManager.playerIndex;
+        animator.SetBool("IsWalking", false);
         if(!isMyController)
             return;
         movementVector = playerInput.actions["Move"].ReadValue<Vector2>();
 
 
-        if (x < 0)
+        if (movementVector.x < 0)
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             animator.SetBool("IsWalking", true);
             AudioManager.instance.PlayAudio(audioWalk, "Walk", false, 0.1f);
         }
-        else if (x > 0)
+        else if (movementVector.x > 0)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             animator.SetBool("IsWalking", true);
             AudioManager.instance.PlayAudio(audioWalk, "Walk", false, 0.1f);
         }
+       
 
-        else
-        {
-            animator.SetBool("IsWalking", false);
-
-        }
+        
 
 
 
@@ -82,39 +79,41 @@ public class PlayerMovement : MonoBehaviour
 
         //jump
 
-        if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire1" : "Fire1 2"))
-        {
-            animator.SetBool("IsAttacking", true);
-            character.Attack(gameObject);
-            AudioManager.instance.PlayAudio(audioAttack, "Attack", false, 1f);
-            Debug.Log("cua");
-        }
-        else
-        {
-            animator.SetBool("IsAttacking", false);
-        }
+        //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire1" : "Fire1 2"))
+        //{
+        //    animator.SetBool("IsAttacking", true);
+        //    character.Attack(gameObject);
+        //    AudioManager.instance.PlayAudio(audioAttack, "Attack", false, 1f);
+        //    Debug.Log("cua");
+        //}
+        //else
+        //{
+        //    animator.SetBool("IsAttacking", false);
+        //}
+        //attack
 
 
+        //if(Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire2" : "Fire2 2")) 
+        //{
+        //    animator.SetBool("IsSpecial", true);
+        //    character.SpecialAttack(gameObject);
+        //    AudioManager.instance.PlayAudio(audioSpecial, "Special", false, 0.8f);
+        //    Debug.Log("cir");
+        //}
+        //else
+        //{
+        //    animator.SetBool("IsSpecial", false);
+        //}
+        //SpecialAttack
 
-        if(Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire2" : "Fire2 2")) 
-        {
-            animator.SetBool("IsSpecial", true);
-            character.SpecialAttack(gameObject);
-            AudioManager.instance.PlayAudio(audioSpecial, "Special", false, 0.8f);
-            Debug.Log("cir");
-        }
-        else
-        {
-            animator.SetBool("IsSpecial", false);
-        }
-
-        if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire3" : "Fire3 2"))
-        {
-            character.SuperAttack(gameObject);
-            AudioManager.instance.PlayAudio(audioUlt, "Ulti", false, 1f);
-            Debug.Log("tri");
-        }
-        IsGrounded();
+        //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire3" : "Fire3 2"))
+        //{
+        //    character.SuperAttack(gameObject);
+        //    AudioManager.instance.PlayAudio(audioUlt, "Ulti", false, 1f);
+        //    Debug.Log("tri");
+        //}
+        //super
+        //IsGrounded();
     }
 
     public void JumpInput(InputAction.CallbackContext callbackContext)
@@ -129,6 +128,52 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void AttackInput(InputAction.CallbackContext callbackContext)
+    {
+        bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        if (callbackContext.performed && isMyController)
+        {
+            animator.SetBool("IsSpecial", true);
+            character.SpecialAttack(gameObject);
+            AudioManager.instance.PlayAudio(audioSpecial, "Special", false, 0.8f);
+            Debug.Log("cir");
+        }
+        else
+        {
+            animator.SetBool("IsSpecial", false);
+        }
+    }
+
+    public void SpAttackInput(InputAction.CallbackContext callbackContext)
+    {
+        bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        if (callbackContext.performed && isMyController)
+        {
+            animator.SetBool("IsAttacking", true);
+            character.Attack(gameObject);
+            AudioManager.instance.PlayAudio(audioAttack, "Attack", false, 1f);
+            Debug.Log("cua");
+        }
+        else
+        {
+            animator.SetBool("IsAttacking", false);
+        }
+    }
+    public void SuperAttack(InputAction.CallbackContext callbackContext)
+    {
+        bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        if (callbackContext.performed && isMyController)
+        {
+            character.SuperAttack(gameObject);
+            AudioManager.instance.PlayAudio(audioUlt, "Ulti", false, 1f);
+            Debug.Log("tri");
+        }
+        else
+        {
+            
+        }
+
+    }
 
     public Vector3 GetMovementVector()
     {
@@ -139,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!nospeed) 
         ApplySpeed();
+        IsGrounded();
         ApplyJumpSpeed();
         jumpPressed = false;
     }
@@ -149,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
         //    new Vector3(0, rb.velocity.y, 0); //Gravedad base de Unity.
         //+ (transform.up * gravityScale); //Gravedad constante no realista
         //rb.AddForce(transform.up * gravityScale);
-        rb.AddForce(new Vector3(movementVector.x, 0, 0) * speed);
+        rb.AddForce(new Vector3(movementVector.x*2, 0, 0) * speed);
     }
 
     void ApplyJumpSpeed()
