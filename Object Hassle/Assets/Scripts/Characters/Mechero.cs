@@ -8,7 +8,7 @@ public class Mechero : Character
 
     public float superRadio = 2;
 
-    public Mechero(string name, float damage, int health) : base("Mechero", 10, Resources.Load<GameObject>("Prefabs/Mechero"), 3)
+    public Mechero(string name, float damage, int health) : base("Mechero", 5, Resources.Load<GameObject>("Prefabs/Mechero"), 0)
     {
 
     }
@@ -27,7 +27,7 @@ public class Mechero : Character
             {
                 Debug.Log("dar");
                 CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
-                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, damage);
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 5);
                 return damage;
             }
         }
@@ -85,7 +85,7 @@ public class Mechero : Character
             {
                 Debug.Log("dar");
                 CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
-                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, damage);
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 12);
                 return damage;
             }
         }
@@ -106,7 +106,7 @@ public class Mechero : Character
             {
                 Debug.Log("dar");
                 CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
-                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, damage);
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 20);
                 return damage;
             }
         }

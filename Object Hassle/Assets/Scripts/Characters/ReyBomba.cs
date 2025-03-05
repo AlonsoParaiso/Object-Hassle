@@ -26,7 +26,7 @@ public class ReyBomba : Character
             {
                 Debug.Log("dar");
                 CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
-                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, damage);
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 8);
                 return damage;
             }
         }
@@ -79,7 +79,7 @@ public class ReyBomba : Character
             {
                 Debug.Log("dar");
                 CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
-                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, damage);
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 25);
                 return damage;
             }
         }
