@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed, runningSpeed, rotationSpeed, jumpForce, sphereRadius;//,gravityScale;
-
     public string groundName;
+    public int life = 3;
     private Animator animator;
     private float currentTimeAtt;
     private float currentTimeSpAtt;
@@ -34,19 +35,19 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
-        PlayerManager[] managers = FindObjectsOfType<PlayerManager>(); 
-        foreach(PlayerManager pm in managers)
+        PlayerManager[] managers = FindObjectsOfType<PlayerManager>();
+        foreach (PlayerManager pm in managers)
         {
-            if(pm.playerIndex == GetComponent<CharacterReference>().playerIndex)
+            if (pm.playerIndex == GetComponent<CharacterReference>().playerIndex)
             {
                 this.playerManager = pm;
                 break;
             }
         }
 
-        foreach(Gamepad gp in Gamepad.all)
+        foreach (Gamepad gp in Gamepad.all)
         {
-            if(minDeviceID > gp.deviceId)
+            if (minDeviceID > gp.deviceId)
             {
                 minDeviceID = gp.deviceId;
             }
@@ -61,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         currentTimeAtt = Time.deltaTime;
         currentTimeSpAtt = Time.deltaTime;
         currentTimeSuAtt = Time.deltaTime;
-       // bool isMyController = false;
+        // bool isMyController = false;
         //if (playerInput.actions["Move"].activeControl != null)
         //    isMyController = playerInput.actions["Move"].activeControl.device.deviceId - minDeviceID == playerManager.playerIndex;//playerInput.actions["Move"].GetBindingIndexForControl(playerInput.actions["Move"].controls[(int)playerManager.playerIndex]) == playerManager.playerIndex;
         animator.SetBool("IsWalking", false);
@@ -88,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
         //{
         //    animator.SetBool("IsJumping", true);
-              //AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
+        //AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
         //    jumpPressed = true;
         //}
         //jump
@@ -133,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         //print("Player: " +( callbackContext.control.device.deviceId - minDeviceID));
         //print("sos: " + playerInput.devices[0].deviceId);
         print("sios" + playerManager.playerIndex);
-       // bool isMyController = callbackContext.control.device.deviceId - minDeviceID == playerManager.playerIndex;//true;//playerInput.playerIndex == callbackContext.control.device.name; //callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        // bool isMyController = callbackContext.control.device.deviceId - minDeviceID == playerManager.playerIndex;//true;//playerInput.playerIndex == callbackContext.control.device.name; //callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed)
         {
             animator.SetBool("IsJumping", true);
@@ -144,8 +145,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void AttackInput(InputAction.CallbackContext callbackContext)
     {
-        bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
-        if (callbackContext.performed && isMyController)
+        //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        if (callbackContext.performed)
         {
             animator.SetBool("IsSpecial", true);
             character.SpecialAttack(gameObject);
@@ -160,8 +161,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void SpAttackInput(InputAction.CallbackContext callbackContext)
     {
-        bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
-        if (callbackContext.performed && isMyController)
+        //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        if (callbackContext.performed)
         {
             animator.SetBool("IsAttacking", true);
             character.Attack(gameObject);
@@ -175,8 +176,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void SuperAttack(InputAction.CallbackContext callbackContext)
     {
-        bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
-        if (callbackContext.performed && isMyController)
+        //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        if (callbackContext.performed)
         {
             character.SuperAttack(gameObject);
             AudioManager.instance.PlayAudio(audioUlt, "Ulti", false, 1f);
@@ -184,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            
+
         }
 
     }
@@ -196,10 +197,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!nospeed) 
-        ApplySpeed();
+        if (!nospeed)
+            ApplySpeed();
         IsGrounded();
         ApplyJumpSpeed();
+        Death();
         jumpPressed = false;
     }
 
@@ -219,7 +221,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
             rb.AddForce(transform.up * jumpForce);
             doubleJump++;
-            
+
         }
     }
 
@@ -241,6 +243,13 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", true);
         return false;
     }
+    private void Death()
+    {
+        if (life == 0)
+        {
+            GameManager.instance.LoadScene("Menu");
+        }
+    }
 
     private void OnDrawGizmos() //Raycast de la esfera.
     {
@@ -251,9 +260,10 @@ public class PlayerMovement : MonoBehaviour
         character.DrawGizmos(gameObject);
     }
 
+
     IEnumerator kk()
     {
-        nospeed=true;
+        nospeed = true;
         yield return new WaitForSeconds(1);
         nospeed = false;
     }

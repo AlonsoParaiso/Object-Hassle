@@ -11,6 +11,9 @@ public class DeadZone : MonoBehaviour
         if (other.GetComponent<PlayerMovement>())
         {
             other.transform.position = spawn;//hace que spawnee donde se le diga
+            other.GetComponent < PlayerMovement>().character.SetHealth(0);
+            other.GetComponent<PlayerMovement>().life -= 1;
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 }

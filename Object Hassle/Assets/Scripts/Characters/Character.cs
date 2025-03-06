@@ -26,6 +26,7 @@ public abstract class Character
     public float GetDamage() { return damage; }
     public GameObject GetGameObject() { return _gameObject; }
     public float GetHealth() { return health; } 
+    public void SetHealth(float health) {  this.health = health; }  
 
     public abstract float Attack(GameObject owner);
 
