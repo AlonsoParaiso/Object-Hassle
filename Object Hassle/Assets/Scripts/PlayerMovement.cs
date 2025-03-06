@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
 
     public string groundName;
     private Animator animator;
+    private float currentTimeAtt;
+    private float currentTimeSpAtt;
+    private float currentTimeSuAtt;
 
     private Vector2 movementVector;
     private PlayerManager playerManager;
@@ -21,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public Character character;
 
     public AudioClip audioAttack, audioSpecial, audioJump, audioUlt, audioWalk;
+
+    public int minDeviceID = int.MaxValue;
 
 
     // Start is called before the first frame update
@@ -38,6 +43,14 @@ public class PlayerMovement : MonoBehaviour
                 break;
             }
         }
+
+        foreach(Gamepad gp in Gamepad.all)
+        {
+            if(minDeviceID > gp.deviceId)
+            {
+                minDeviceID = gp.deviceId;
+            }
+        }
         character = playerManager.GetCharacter();
 
     }
@@ -45,7 +58,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isMyController = playerInput.actions["Move"].GetBindingIndexForControl(playerInput.actions["Move"].activeControl) == playerManager.playerIndex;
+        currentTimeAtt = Time.deltaTime;
+        currentTimeSpAtt = Time.deltaTime;
+        currentTimeSuAtt = Time.deltaTime;
+        bool isMyController = false;
+        //if(playerInput.actions["Move"].activeControl != null)
+            isMyController = playerInput.actions["Move"].activeControl.device.deviceId - minDeviceID == playerManager.playerIndex;//playerInput.actions["Move"].GetBindingIndexForControl(playerInput.actions["Move"].controls[(int)playerManager.playerIndex]) == playerManager.playerIndex;
         animator.SetBool("IsWalking", false);
         if (!isMyController)
         {
@@ -67,21 +85,13 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsWalking", true);
             AudioManager.instance.PlayAudio(audioWalk, "Walk", false, 0.1f);
         }
-       
-
-        
-
-
-
         //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
         //{
         //    animator.SetBool("IsJumping", true);
               //AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
         //    jumpPressed = true;
         //}
-
         //jump
-
         //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire1" : "Fire1 2"))
         //{
         //    animator.SetBool("IsAttacking", true);
@@ -94,8 +104,6 @@ public class PlayerMovement : MonoBehaviour
         //    animator.SetBool("IsAttacking", false);
         //}
         //attack
-
-
         //if(Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire2" : "Fire2 2")) 
         //{
         //    animator.SetBool("IsSpecial", true);
@@ -108,7 +116,6 @@ public class PlayerMovement : MonoBehaviour
         //    animator.SetBool("IsSpecial", false);
         //}
         //SpecialAttack
-
         //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire3" : "Fire3 2"))
         //{
         //    character.SuperAttack(gameObject);
@@ -121,9 +128,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void JumpInput(InputAction.CallbackContext callbackContext)
     {
+
         // Gamepad.all[(int)playerManager.playerIndex].buttonSouth.IsPressed()
-        bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
-        if (callbackContext.performed && isMyController)
+        //print("Player: " +( callbackContext.control.device.deviceId - minDeviceID));
+        //print("sos: " + playerInput.devices[0].deviceId);
+        print("sios" + playerManager.playerIndex);
+        bool isMyController = callbackContext.control.device.deviceId - minDeviceID == playerManager.playerIndex;//true;//playerInput.playerIndex == callbackContext.control.device.name; //callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        if (isMyController)
         {
             animator.SetBool("IsJumping", true);
             AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
@@ -198,7 +209,7 @@ public class PlayerMovement : MonoBehaviour
         //    new Vector3(0, rb.velocity.y, 0); //Gravedad base de Unity.
         //+ (transform.up * gravityScale); //Gravedad constante no realista
         //rb.AddForce(transform.up * gravityScale);
-        rb.AddForce(new Vector3(movementVector.x*2, 0, 0) * speed);
+        rb.AddForce(new Vector3(movementVector.x, 0, 0) * speed);
     }
 
     void ApplyJumpSpeed()

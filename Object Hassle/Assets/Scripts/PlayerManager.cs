@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.TextCore.Text;
 
 public class PlayerManager : MonoBehaviour
@@ -35,5 +36,10 @@ public class PlayerManager : MonoBehaviour
     public Character GetCharacter()
     {
         return character;
+    }
+
+    public void SeUnio(PlayerInput pI)
+    {
+        
     }
 }
