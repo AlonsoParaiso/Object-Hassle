@@ -24,12 +24,14 @@ public class PlayerManager : MonoBehaviour
         }
 
         character.SetCharacterIndex(playerIndex);
-        GameObject nPlayer = Instantiate(character.GetGameObject(), new Vector3(-6.23999977f, 2.32999992f, -2.50999999f), Quaternion.identity);
+        GameObject nPlayer = PlayerInput.Instantiate(character.GetGameObject(), pairWithDevice: Gamepad.all[(int)playerIndex]).gameObject;
         nPlayer.transform.Rotate(0,120,0);
         nPlayer.transform.rotation = Quaternion.identity;
+        nPlayer.transform.position = new Vector3(-6.23999977f, 2.32999992f, -2.50999999f);
         nPlayer.AddComponent<CharacterReference>().character = character;
         nPlayer.GetComponent<CharacterReference>().playerIndex = (int)playerIndex;
         nPlayer.GetComponent<CharacterReference>().UpdateName();
+        //nPlayer.GetComponent<PlayerInput>().devices[(int)playerIndex].deviceId;
     }
 
     // Start is called before the first frame update

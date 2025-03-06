@@ -61,15 +61,15 @@ public class PlayerMovement : MonoBehaviour
         currentTimeAtt = Time.deltaTime;
         currentTimeSpAtt = Time.deltaTime;
         currentTimeSuAtt = Time.deltaTime;
-        bool isMyController = false;
-        //if(playerInput.actions["Move"].activeControl != null)
-            isMyController = playerInput.actions["Move"].activeControl.device.deviceId - minDeviceID == playerManager.playerIndex;//playerInput.actions["Move"].GetBindingIndexForControl(playerInput.actions["Move"].controls[(int)playerManager.playerIndex]) == playerManager.playerIndex;
+       // bool isMyController = false;
+        //if (playerInput.actions["Move"].activeControl != null)
+        //    isMyController = playerInput.actions["Move"].activeControl.device.deviceId - minDeviceID == playerManager.playerIndex;//playerInput.actions["Move"].GetBindingIndexForControl(playerInput.actions["Move"].controls[(int)playerManager.playerIndex]) == playerManager.playerIndex;
         animator.SetBool("IsWalking", false);
-        if (!isMyController)
-        {
-            animator.SetBool("IsWalking", false);
-            return;
-        }
+        //if (!isMyController)
+        //{
+        //    animator.SetBool("IsWalking", false);
+        //    return;
+        //}
         movementVector = playerInput.actions["Move"].ReadValue<Vector2>();
 
 
@@ -133,8 +133,8 @@ public class PlayerMovement : MonoBehaviour
         //print("Player: " +( callbackContext.control.device.deviceId - minDeviceID));
         //print("sos: " + playerInput.devices[0].deviceId);
         print("sios" + playerManager.playerIndex);
-        bool isMyController = callbackContext.control.device.deviceId - minDeviceID == playerManager.playerIndex;//true;//playerInput.playerIndex == callbackContext.control.device.name; //callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
-        if (isMyController)
+       // bool isMyController = callbackContext.control.device.deviceId - minDeviceID == playerManager.playerIndex;//true;//playerInput.playerIndex == callbackContext.control.device.name; //callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        if (callbackContext.performed)
         {
             animator.SetBool("IsJumping", true);
             AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
