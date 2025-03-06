@@ -7,6 +7,8 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject BasicoVFX, UltiVFX;
+
     public float speed, runningSpeed, rotationSpeed, jumpForce, sphereRadius;//,gravityScale;
     public string groundName;
     public int life = 3;
@@ -166,9 +168,12 @@ public class PlayerMovement : MonoBehaviour
             character.Attack(gameObject);
             AudioManager.instance.PlayAudio(audioAttack, "Attack", false, 1f);
             Debug.Log("cua");
+
+            StartCoroutine(BasicVFX());
         }
         else
         {
+            
             animator.SetBool("IsAttacking", false);
         }
     }
@@ -177,15 +182,30 @@ public class PlayerMovement : MonoBehaviour
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed)
         {
+            animator.SetBool("IsUlting", true);
             character.SuperAttack(gameObject);
             AudioManager.instance.PlayAudio(audioUlt, "Ulti", false, 1f);
             Debug.Log("tri");
+
+            StartCoroutine(SuperVFX());
         }
         else
         {
-
+            animator.SetBool("IsUlting", false);
         }
 
+    }
+    public IEnumerator BasicVFX()
+    {
+        BasicoVFX.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        BasicoVFX.SetActive(false);
+    }
+    public IEnumerator SuperVFX()
+    {
+        UltiVFX.SetActive(true);
+        yield return new WaitForSeconds(2);
+        UltiVFX.SetActive(false);
     }
 
     public Vector3 GetMovementVector()
