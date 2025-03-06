@@ -1247,7 +1247,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: c196f46c46f607743ab2624876afbcdc, type: 3}
   isLoop: 1
   playOnStart: 1
-  volume: 0.5
+  volume: 0.3
   gameObjectName: SelectionBackgroundMusic
 --- !u!4 &1613678566
 Transform:

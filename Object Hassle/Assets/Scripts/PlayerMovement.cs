@@ -78,13 +78,11 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             animator.SetBool("IsWalking", true);
-            AudioManager.instance.PlayAudio(audioWalk, "Walk", false, 0.1f);
         }
         else if (movementVector.x > 0)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             animator.SetBool("IsWalking", true);
-            AudioManager.instance.PlayAudio(audioWalk, "Walk", false, 0.1f);
         }
         //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
         //{
