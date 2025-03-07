@@ -30,10 +30,16 @@ public class PlayerMovement : MonoBehaviour
 
     public int minDeviceID = int.MaxValue;
 
+    //public Material material;
+    public SkinnedMeshRenderer skinnedMeshRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        //material = GetComponent<Material>();
+        skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        
+        
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
@@ -47,6 +53,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (GetComponent<CharacterReference>().playerIndex == 1)
+        {
+            skinnedMeshRenderer.material.color = Color.blue;
+            
+            //material.color = Color.blue;
+        }
         foreach (Gamepad gp in Gamepad.all)
         {
             if (minDeviceID > gp.deviceId)
