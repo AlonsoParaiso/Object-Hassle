@@ -55,8 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (GetComponent<CharacterReference>().playerIndex == 1)
         {
-            Color color = skinnedMeshRenderer.material.color = Color.blue;
-            color.a = 0.2f;
+            Color32 color = skinnedMeshRenderer.material.color = new Color(0.3f, 1f, 1f, 1f);
             //skinnedMeshRenderer.material.color = Color.blue;
             
             //skinnedMeshRenderer.material.color.a = 1f;
@@ -64,8 +63,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            Color color = skinnedMeshRenderer.material.color = Color.red;
-            color.a = 0.2f;
+            Color32 color = skinnedMeshRenderer.material.color = new Color(1f, 0.6f, 0.6f, 0.5f);
             //skinnedMeshRenderer.material.color = Color.red;
         }
         foreach (Gamepad gp in Gamepad.all)
