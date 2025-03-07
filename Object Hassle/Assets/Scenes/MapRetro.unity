@@ -653,7 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPool: {fileID: 8502363837521913576, guid: 1a825c50f2975bc4197ad907d8370894, type: 3}
-  sizePool: 3
+  sizePool: 6
   shouldExpand: 0
   poolType: 0
 --- !u!4 &834152538

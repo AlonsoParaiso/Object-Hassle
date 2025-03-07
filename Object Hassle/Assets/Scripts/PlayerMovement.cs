@@ -61,9 +61,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTimeAtt = Time.deltaTime;
-        currentTimeSpAtt = Time.deltaTime;
-        currentTimeSuAtt = Time.deltaTime;
+        
+        currentTimeSpAtt += Time.deltaTime;
+        currentTimeSuAtt += Time.deltaTime;
         // bool isMyController = false;
         //if (playerInput.actions["Move"].activeControl != null)
         //    isMyController = playerInput.actions["Move"].activeControl.device.deviceId - minDeviceID == playerManager.playerIndex;//playerInput.actions["Move"].GetBindingIndexForControl(playerInput.actions["Move"].controls[(int)playerManager.playerIndex]) == playerManager.playerIndex;
@@ -146,13 +146,13 @@ public class PlayerMovement : MonoBehaviour
     public void AttackInput(InputAction.CallbackContext callbackContext)
     {
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
-        if (callbackContext.performed && currentTimeAtt>=0.5f)
+        if (callbackContext.performed && currentTimeSpAtt >= 1.5f)
         {
             animator.SetBool("IsSpecial", true);
             character.SpecialAttack(gameObject);
             AudioManager.instance.PlayAudio(audioSpecial, "Special", false, 0.8f);
             Debug.Log("cir");
-            currentTimeAtt = 0;
+            currentTimeSpAtt = 0f;
         }
         else
         {
@@ -163,13 +163,13 @@ public class PlayerMovement : MonoBehaviour
     public void SpAttackInput(InputAction.CallbackContext callbackContext)
     {
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
-        if (callbackContext.performed && currentTimeSpAtt >=1.5f)
+        if (callbackContext.performed)
         {
             animator.SetBool("IsAttacking", true);
             character.Attack(gameObject);
             AudioManager.instance.PlayAudio(audioAttack, "Attack", false, 1f);
             Debug.Log("cua");
-            currentTimeSpAtt = 0f;
+            
             StartCoroutine(BasicVFX());
         }
         else
