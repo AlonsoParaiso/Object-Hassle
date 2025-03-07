@@ -146,12 +146,13 @@ public class PlayerMovement : MonoBehaviour
     public void AttackInput(InputAction.CallbackContext callbackContext)
     {
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
-        if (callbackContext.performed)
+        if (callbackContext.performed && currentTimeAtt>=0.5f)
         {
             animator.SetBool("IsSpecial", true);
             character.SpecialAttack(gameObject);
             AudioManager.instance.PlayAudio(audioSpecial, "Special", false, 0.8f);
             Debug.Log("cir");
+            currentTimeAtt = 0;
         }
         else
         {
@@ -162,13 +163,13 @@ public class PlayerMovement : MonoBehaviour
     public void SpAttackInput(InputAction.CallbackContext callbackContext)
     {
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
-        if (callbackContext.performed)
+        if (callbackContext.performed && currentTimeSpAtt >=1.5f)
         {
             animator.SetBool("IsAttacking", true);
             character.Attack(gameObject);
             AudioManager.instance.PlayAudio(audioAttack, "Attack", false, 1f);
             Debug.Log("cua");
-
+            currentTimeSpAtt = 0f;
             StartCoroutine(BasicVFX());
         }
         else
@@ -180,12 +181,13 @@ public class PlayerMovement : MonoBehaviour
     public void SuperAttack(InputAction.CallbackContext callbackContext)
     {
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
-        if (callbackContext.performed)
+        if (callbackContext.performed && currentTimeSuAtt>=10)
         {
             animator.SetBool("IsUlting", true);
             character.SuperAttack(gameObject);
             AudioManager.instance.PlayAudio(audioUlt, "Ulti", false, 1f);
             Debug.Log("tri");
+            currentTimeSuAtt = 0;
 
             StartCoroutine(SuperVFX());
         }
@@ -229,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
         //    new Vector3(0, rb.velocity.y, 0); //Gravedad base de Unity.
         //+ (transform.up * gravityScale); //Gravedad constante no realista
         //rb.AddForce(transform.up * gravityScale);
-        rb.AddForce(new Vector3(movementVector.x, 0, 0) * speed);
+        rb.AddForce(new Vector3(movementVector.x * 1.2f, 0, 0) * speed);
     }
 
     void ApplyJumpSpeed()
