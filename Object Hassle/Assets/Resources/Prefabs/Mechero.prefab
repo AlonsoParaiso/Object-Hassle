@@ -195,11 +195,12 @@ MonoBehaviour:
   life: 3
   doubleJump: 0
   audioAttack: {fileID: 8300000, guid: 9214c98599e4ec84c91561b37cef04dd, type: 3}
-  audioSpecial: {fileID: 0}
+  audioSpecial: {fileID: 8300000, guid: ebd970240cc7bc84b99e581dea5af28f, type: 3}
   audioJump: {fileID: 8300000, guid: bade478cf80aafd4295e0143c04bf75e, type: 3}
-  audioUlt: {fileID: 8300000, guid: 54ea3c6cc53031b489a460c6520784f7, type: 3}
-  audioWalk: {fileID: 8300000, guid: 4547952758c8bfd41836293b44233f25, type: 3}
+  audioUlt1: {fileID: 8300000, guid: 54ea3c6cc53031b489a460c6520784f7, type: 3}
+  audioUlt2: {fileID: 8300000, guid: c5f08c659af9c4a448d469e301b64179, type: 3}
   minDeviceID: 2147483647
+  skinnedMeshRenderer: {fileID: 0}
 --- !u!114 &-7441994936230955453
 MonoBehaviour:
   m_ObjectHideFlags: 0

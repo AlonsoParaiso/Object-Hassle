@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public int doubleJump;
     public Character character;
 
-    public AudioClip audioAttack, audioSpecial, audioJump, audioUlt, audioWalk;
+    public AudioClip audioAttack, audioSpecial, audioJump, audioUlt1, audioUlt2;
 
     public int minDeviceID = int.MaxValue;
 
@@ -206,7 +206,8 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsUlting", true);
             character.SuperAttack(gameObject);
-            AudioManager.instance.PlayAudio(audioUlt, "Ulti", false, 1f);
+            AudioManager.instance.PlayAudio(audioUlt1, "Ulti1", false, 1f);
+            AudioManager.instance.PlayAudio(audioUlt2, "Ulti2", false, 1f);
             Debug.Log("tri");
             currentTimeSuAtt = 0;
 
