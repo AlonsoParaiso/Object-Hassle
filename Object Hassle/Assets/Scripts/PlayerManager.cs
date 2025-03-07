@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         
-        switch (GameManager.instance.characterIndexes[playerIndex])
+        switch (Random.Range(0,2))
         {
             case 0:
                 character = new ReyBomba("a", 10, 0);
@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
         GameObject nPlayer = PlayerInput.Instantiate(character.GetGameObject(), pairWithDevice: Gamepad.all[(int)playerIndex]).gameObject;
         nPlayer.transform.Rotate(0,120,0);
         nPlayer.transform.rotation = Quaternion.identity;
-        nPlayer.transform.position = new Vector3(-6.23999977f, 2.32999992f, -2.50999999f);
+        nPlayer.transform.position = new Vector3(0.5219868f, 3.851968f, -2.51f);
         nPlayer.AddComponent<CharacterReference>().character = character;
         nPlayer.GetComponent<CharacterReference>().playerIndex = (int)playerIndex;
         nPlayer.GetComponent<CharacterReference>().UpdateName();
