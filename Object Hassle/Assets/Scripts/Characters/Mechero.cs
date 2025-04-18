@@ -34,6 +34,48 @@ public class Mechero : Character
         Debug.Log("no dar");
         return 0;
     }
+    public override float UpAttack(GameObject owner)
+    {
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y += owner.transform.localScale.y * 3;
+        Collider[] colliders = Physics.OverlapSphere(vectorAttack, 1f);
+        for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
+        {
+            // y comprobamos si el elemento es suelo o no.
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")
+                && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
+            {
+                Debug.Log("dar");
+                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 8);
+                return damage;
+            }
+        }
+        Debug.Log("no dar");
+        return 0;
+    }
+
+    public override float DownAttack(GameObject owner)
+    {
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y -= owner.transform.localScale.y;
+        Collider[] colliders = Physics.OverlapSphere(vectorAttack, 1f);
+        for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
+        {
+            // y comprobamos si el elemento es suelo o no.
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player")
+                && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
+            {
+                Debug.Log("dar");
+                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 8);
+                return damage;
+            }
+        }
+        Debug.Log("no dar");
+        return 0;
+    }
+    
 
     public override void DrawGizmos(GameObject owner)
     {
@@ -50,6 +92,26 @@ public class Mechero : Character
         vectorAttack.x += owner.transform.localScale.x;
         Gizmos.DrawWireSphere(vectorAttack, 1f);
     }
+    public override void DrawGizmosUpAttack(GameObject owner)
+    {
+        Gizmos.color = Color.yellow;
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y += owner.transform.localScale.y * 3;
+
+        Gizmos.DrawWireSphere(vectorAttack, 1f);
+    }
+
+    public override void DrawGizmosDownAttack(GameObject owner)
+    {
+        Gizmos.color = Color.yellow;
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y -= owner.transform.localScale.y;
+
+        Gizmos.DrawWireSphere(vectorAttack, 1f);
+    }
+
+
+
 
     public override void DrawGizmosSpAttack(GameObject owner)
     {
@@ -70,6 +132,8 @@ public class Mechero : Character
         Gizmos.DrawWireSphere(new Vector3(vectorAttack.x + (owner.transform.localScale.x / Mathf.Abs(owner.transform.localScale.x) * superDistance), vectorAttack.y, vectorAttack.z), superRadio );
         Gizmos.DrawLine(vectorAttack, new Vector3(vectorAttack.x + (owner.transform.localScale.x / Mathf.Abs(owner.transform.localScale.x) * superDistance), vectorAttack.y, vectorAttack.z));
     }
+
+  
 
     public override float SpecialAttack(GameObject owner)
     {
@@ -113,4 +177,5 @@ public class Mechero : Character
         Debug.Log("no dar");
         return 0;
     }
+
 }

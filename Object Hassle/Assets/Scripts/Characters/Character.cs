@@ -42,6 +42,10 @@ public abstract class Character
 
     public abstract void DrawGizmosAttack(GameObject owner);
 
+    public abstract void DrawGizmosUpAttack(GameObject owner);
+
+    public abstract void DrawGizmosDownAttack(GameObject owner);
+
     public abstract void DrawGizmosSpAttack(GameObject owner);
 
     public abstract void DrawGizmosSuperAttack(GameObject owner);
