@@ -30,6 +30,10 @@ public abstract class Character
 
     public abstract float Attack(GameObject owner);
 
+    public abstract float UpAttack(GameObject owner);// el ataque de los up
+
+    public abstract float DownAttack(GameObject owner);//el ataque de los down(nunca supe como se escibia)
+
     public abstract float SpecialAttack(GameObject owner);
 
     public abstract float SuperAttack(GameObject owner);// programar objeto de super y cuando reciba X daño
