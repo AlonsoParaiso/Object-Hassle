@@ -80,6 +80,8 @@ public class Mechero : Character
     public override void DrawGizmos(GameObject owner)
     {
         DrawGizmosAttack(owner);
+        DrawGizmosUpAttack(owner);
+        DrawGizmosDownAttack(owner);
         DrawGizmosSpAttack(owner);
         DrawGizmosSuperAttack(owner);
     }
