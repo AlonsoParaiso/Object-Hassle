@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MapRetro.unity
     guid: 5957c80e7657e294b89a56d241b7449c
   - enabled: 1
-    path: Assets/Scenes/SmapaRetroS.unity
+    path: Assets/Scenes/MapRain.unity
     guid: 8225abe37148cfb4198f904234ce9ac5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 734c9b7fa3fe14e4da6dbab02edd7f8d, type: 2}

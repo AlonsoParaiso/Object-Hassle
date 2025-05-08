@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         
-        switch (Random.Range(0,2))
+        switch (GameManager.instance.characterIndexes[playerIndex])
         {
             case 0:
                 character = new ReyBomba("a", 10, 0);
