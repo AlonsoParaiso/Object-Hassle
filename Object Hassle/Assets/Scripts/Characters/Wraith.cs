@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using static UnityEditor.PlayerSettings;
 
-public class Phantom : Character
+public class Wraith : Character
 {
-    public Phantom(string name, float damage, int health) : base("bad guy_sin rig 1", 10, Resources.Load<GameObject>("Prefabs/bad guy_sin rig 1"), 0)
+    private float superDistance = 4f;
+    public Wraith(string name, float damage, int health) : base("Wraith", 10, Resources.Load<GameObject>("Prefabs/Wraith"), 0)
     {
 
     }
@@ -92,15 +95,31 @@ public class Phantom : Character
         vectorAttack.x += owner.transform.localScale.x;
         Gizmos.DrawWireSphere(vectorAttack,1f);
     }
+    public override void DrawGizmosUpAttack(GameObject owner)
+    {
+        Gizmos.color = Color.yellow;
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y += owner.transform.localScale.y * 3;
+
+        Gizmos.DrawWireSphere(vectorAttack, 1f);
+    }
 
     public override void DrawGizmosDownAttack(GameObject owner)
     {
-        throw new System.NotImplementedException();
+        Gizmos.color = Color.yellow;
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.y -= owner.transform.localScale.y;
+
+        Gizmos.DrawWireSphere(vectorAttack, 1f);
     }
 
     public override void DrawGizmosSpAttack(GameObject owner)
     {
-        throw new System.NotImplementedException();
+        Gizmos.color = Color.magenta;
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.x += owner.transform.localScale.x;
+        vectorAttack.y += owner.transform.localScale.y;
+        Gizmos.DrawCube(new Vector3(vectorAttack.x + superDistance, vectorAttack.y, vectorAttack.z), new Vector3(5, 5, 5));
     }
 
     public override void DrawGizmosSuperAttack(GameObject owner)
@@ -108,19 +127,45 @@ public class Phantom : Character
         throw new System.NotImplementedException();
     }
 
-    public override void DrawGizmosUpAttack(GameObject owner)
-    {
-        throw new System.NotImplementedException();
-    }
 
     public override float SpecialAttack(GameObject owner)
     {
-        throw new System.NotImplementedException();
+        MagicSpawn(owner.transform, owner.GetComponent<MagicPool>().magicPool);
+        return 0;
     }
 
     public override float SuperAttack(GameObject owner)
     {
-        throw new System.NotImplementedException();
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.x += owner.transform.localScale.x;
+        vectorAttack.y += owner.transform.localScale.y;
+        Collider[] colliders = Physics.OverlapBox(new Vector3(vectorAttack.x + superDistance, vectorAttack.y, vectorAttack.z), owner.transform.localScale, Quaternion.identity, 6, QueryTriggerInteraction.Collide);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != owner) 
+            {
+                Debug.Log("dar");
+                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 20);
+                return damage;
+            }
+        }
+        Debug.Log("no dar");
+        return 0;
+    }
+
+    void MagicSpawn(Transform transform, GameObjectPool bombPool)
+    {
+        GameObject obj = bombPool.GimmeInactiveGameObject();
+        if (obj)
+        {
+            obj.SetActive(true);
+            obj.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z + 11);
+
+            MagicObject magicObjectComponent = obj.GetComponent<MagicObject>();
+            magicObjectComponent.SetDirection(transform.forward);
+
+        }
     }
 
 }
