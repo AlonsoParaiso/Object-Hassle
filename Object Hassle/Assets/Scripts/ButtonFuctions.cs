@@ -36,6 +36,10 @@ public class ButtonFunctions : MonoBehaviour
                 GameManager.instance.scenaryCombat = "MapRain";
                 FindObjectOfType<DisableButton>().GetComponent<Button>().interactable = true;
                 break;
+            case 2:
+                GameManager.instance.scenaryCombat = "MapSpace";
+                FindObjectOfType<DisableButton>().GetComponent<Button>().interactable = true;
+                break;
             default:
                 break;
 

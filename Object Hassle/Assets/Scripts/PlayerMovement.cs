@@ -162,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void AttackInput(InputAction.CallbackContext callbackContext)
+    public void SpAttackInput(InputAction.CallbackContext callbackContext)
     {
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed && currentTimeSpAtt >= 1.5f)
@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void SpAttackInput(InputAction.CallbackContext callbackContext)
+    public void AttackInput(InputAction.CallbackContext callbackContext)
     {
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed)
@@ -195,6 +195,36 @@ public class PlayerMovement : MonoBehaviour
         {
             
             animator.SetBool("IsAttacking", false);
+        }
+    }
+
+    public void AttackUpInput(InputAction.CallbackContext callbackContext) 
+    {
+        if (callbackContext.performed)
+        {
+            animator.SetBool("IsAttackingUp", true);
+            character.UpAttack(gameObject);
+
+            Debug.Log("ua");
+        }
+        else 
+        { 
+            animator.SetBool("IsAttakingUp", false);
+        }
+    }
+    
+    public void AttackDownInput(InputAction.CallbackContext callbackContext) 
+    {
+        if (callbackContext.performed)
+        {
+            animator.SetBool("IsAttackingDown", true);
+            character.DownAttack(gameObject);
+
+            Debug.Log("bye");
+        }
+        else 
+        { 
+            animator.SetBool("IsAttakingDown", false);
         }
     }
     public void SuperAttack(InputAction.CallbackContext callbackContext)

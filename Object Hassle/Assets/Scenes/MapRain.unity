@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4121645513910942227, guid: a166db4ff24e35949b26a6e17f458f5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4328003440632435578, guid: a166db4ff24e35949b26a6e17f458f5b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -611,7 +615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &653260036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1082,6 +1086,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca35da6633965f44388c40d56c83fade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1224173399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1224173401}
+  - component: {fileID: 1224173400}
+  m_Layer: 0
+  m_Name: PoolBomba (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1224173400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224173399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9172595f35d0ce34ba88821fb2ed5264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPool: {fileID: 3562417694403539847, guid: 13451a3492b4200488c54ac09d7feb46, type: 3}
+  sizePool: 2
+  shouldExpand: 0
+  poolType: 0
+--- !u!4 &1224173401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224173399}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.03000021, y: 3.9099998, z: 0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1295175133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1720,6 +1772,7 @@ SceneRoots:
   - {fileID: 1029589919}
   - {fileID: 25843921}
   - {fileID: 834152538}
+  - {fileID: 1224173401}
   - {fileID: 84459373}
   - {fileID: 2053315791}
   - {fileID: 988283521}

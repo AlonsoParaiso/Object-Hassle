@@ -19,6 +19,9 @@ public class PlayerManager : MonoBehaviour
             case 1:
                 character = new Mechero("b", 8, 0);
                 break;
+            case 2:
+                character = new Wraith("c", 8, 0);
+                break;
             default:
                 break;
         }

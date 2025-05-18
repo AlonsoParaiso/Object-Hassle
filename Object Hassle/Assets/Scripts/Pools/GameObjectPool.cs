@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PoolType { BOMB, LIGHTER }
+public enum PoolType { BOMB, LIGHTER, WRAITH}
 public class GameObjectPool : MonoBehaviour
 {
 

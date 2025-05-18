@@ -370,6 +370,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a936c83b1746f14f9100db745e94f04, type: 3}
+--- !u!1 &491838349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 491838351}
+  - component: {fileID: 491838350}
+  m_Layer: 0
+  m_Name: MagicPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &491838350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491838349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9172595f35d0ce34ba88821fb2ed5264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPool: {fileID: 3562417694403539847, guid: 13451a3492b4200488c54ac09d7feb46, type: 3}
+  sizePool: 2
+  shouldExpand: 0
+  poolType: 2
+--- !u!4 &491838351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491838349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.03000021, y: 3.9099998, z: 0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &580980912
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPool: {fileID: 8502363837521913576, guid: 1a825c50f2975bc4197ad907d8370894, type: 3}
-  sizePool: 6
+  sizePool: 3
   shouldExpand: 0
   poolType: 0
 --- !u!4 &834152538
@@ -1993,6 +2041,7 @@ SceneRoots:
   - {fileID: 1029589919}
   - {fileID: 25843921}
   - {fileID: 834152538}
+  - {fileID: 491838351}
   - {fileID: 1227632691}
   - {fileID: 3880056791539047669}
   - {fileID: 580980915}

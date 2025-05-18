@@ -6,7 +6,7 @@ using static UnityEditor.PlayerSettings;
 
 public class Wraith : Character
 {
-    private float superDistance = 4f;
+    private float superDistance = 3f;
     public Wraith(string name, float damage, int health) : base("Wraith", 10, Resources.Load<GameObject>("Prefabs/Wraith"), 0)
     {
 
@@ -16,7 +16,7 @@ public class Wraith : Character
         Vector3 vectorAttack = owner.transform.position;
         vectorAttack.y += owner.transform.localScale.y;
         vectorAttack.x += owner.transform.localScale.x;
-        Collider[] colliders = Physics.OverlapSphere(vectorAttack, 2f);
+        Collider[] colliders = Physics.OverlapSphere(vectorAttack, 1f);
         for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
         {
             // y comprobamos si el elemento es suelo o no.
@@ -57,7 +57,7 @@ public class Wraith : Character
     {
 
         Vector3 vectorAttack = owner.transform.position;
-        vectorAttack.y += owner.transform.localScale.y * 3;
+        vectorAttack.y += owner.transform.localScale.y * 2;
         Collider[] colliders = Physics.OverlapSphere(vectorAttack, 2f);
         for (int i = 0; i < colliders.Length; i++) //recorremos elemento a elemento.
         {
@@ -116,15 +116,15 @@ public class Wraith : Character
     public override void DrawGizmosSpAttack(GameObject owner)
     {
         Gizmos.color = Color.magenta;
-        Vector3 vectorAttack = owner.transform.position;
-        vectorAttack.x += owner.transform.localScale.x;
-        vectorAttack.y += owner.transform.localScale.y;
-        Gizmos.DrawCube(new Vector3(vectorAttack.x + superDistance, vectorAttack.y, vectorAttack.z), new Vector3(5, 5, 5));
     }
 
     public override void DrawGizmosSuperAttack(GameObject owner)
     {
-        throw new System.NotImplementedException();
+        Gizmos.color = Color.magenta;
+        Vector3 vectorAttack = owner.transform.position;
+        vectorAttack.x += owner.transform.localScale.x;
+        vectorAttack.y += owner.transform.localScale.y;
+        Gizmos.DrawWireCube(new Vector3(vectorAttack.x + superDistance, vectorAttack.y, vectorAttack.z), new Vector3(3, 20, 5));
     }
 
 
