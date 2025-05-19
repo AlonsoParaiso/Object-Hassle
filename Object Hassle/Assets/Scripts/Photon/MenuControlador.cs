@@ -57,10 +57,7 @@ public class MenuControlador : MonoBehaviourPunCallbacks, ILobbyCallbacks
             ActualizarLobbyNavegador();
     }
 
-    private void ActualizarLobbyNavegador()
-    {
-        throw new NotImplementedException();
-    }
+
 
     public void OnNombreJugadorCambia(TMP_InputField inpJugadorNombre) 
     {
@@ -79,6 +76,16 @@ public class MenuControlador : MonoBehaviourPunCallbacks, ILobbyCallbacks
         SetPantalla(crearRoomPantalla);
     }
 
+
+    public void OnEncontrarRoomClicked()
+    {
+        SetPantalla(lobbieNavegador);
+    }
+
+    public void OnRegresarClicked()
+    {
+        
+    }
     public void OnCrearRoomBoton(TMP_InputField nombre)
     {
         NetworkManager.instance.CrearRoom(nombre.text);
@@ -99,8 +106,75 @@ public class MenuControlador : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     private void ActualizarLobby()
     {
-        
+        iniciarJuego.interactable = PhotonNetwork.IsMasterClient;
+
+        txtListaJugadores.text = "";
+
+        foreach(Player p in PhotonNetwork.PlayerList)
+        {
+            txtListaJugadores.text += p.NickName + "\n";
+
+        }
+
+        txtInfo.text = string.Format(@"<b>Nombre Room: </b>{0}{1}", "\n", PhotonNetwork.CurrentRoom.Name);
     }
+
+
+    public void OnIniciarJuegoCliked()
+    {
+
+    }
+
+    public void OnSalirLobby()
+    {
+
+    }
+
+    public GameObject CrearRoomBoton()
+    {
+        GameObject obj = Instantiate(roomElemento, roomContenedor, transform);
+        roomElementos.Add(obj);
+        return obj;
+    }
+
+    private void ActualizarLobbyNavegador()
+    {
+        foreach(GameObject p in roomElementos)
+        {
+            p.SetActive(false);
+        }
+
+        for (int i = 0; i < listaRooms.Count; i++)
+        {
+            GameObject boton = i >=roomElementos.Count ? CrearRoomBoton() : roomElementos[i];
+            boton.SetActive(true);
+
+            boton.transform.Find("txtNombreRoom").GetComponent<TextMeshProUGUI>().text = listaRooms[i].Name;
+            boton.transform.Find("txtCantidadJugadores").GetComponent<TextMeshProUGUI>().text = listaRooms[i].PlayerCount + "/" + listaRooms[i].MaxPlayers;
+
+            Button b1 = boton.GetComponent<Button>();
+            string nombre = listaRooms[i].Name;
+            b1.onClick.RemoveAllListeners();
+            b1.onClick.AddListener(() => { OnUnirseRoomClicked(nombre); });
+        }
+    }
+
+    public void OnRefrescarClicked()
+    {
+        ActualizarLobbyNavegador();
+    }
+
+    private void OnUnirseRoomClicked(string nombre)
+    {
+        NetworkManager.instance.UnirseRoom(nombre);
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        listaRooms = roomList;
+    }
+
+
     // Update is called once per frame
     void Update()
     {

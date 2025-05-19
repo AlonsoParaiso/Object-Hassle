@@ -53,6 +53,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel("menu");
     }
+
+
     // Update is called once per frame
     void Update()
     {
