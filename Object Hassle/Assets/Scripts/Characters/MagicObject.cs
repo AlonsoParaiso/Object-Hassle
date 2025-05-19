@@ -22,7 +22,10 @@ public class MagicObject : MonoBehaviour
         currentTime += Time.deltaTime;
         if (currentTime > maxTime) 
         {
-            currentTime = 0;    
+            currentTime = 0;
+            rb.velocity = Vector3.zero;
+            gameObject.SetActive(false);
+             
         
         }
     }

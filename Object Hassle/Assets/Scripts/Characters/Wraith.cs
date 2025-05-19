@@ -124,7 +124,7 @@ public class Wraith : Character
         Vector3 vectorAttack = owner.transform.position;
         vectorAttack.x += owner.transform.localScale.x;
         vectorAttack.y += owner.transform.localScale.y;
-        Gizmos.DrawWireCube(new Vector3(vectorAttack.x + superDistance, vectorAttack.y, vectorAttack.z), new Vector3(3, 20, 5));
+        Gizmos.DrawWireCube(new Vector3(vectorAttack.x, vectorAttack.y, vectorAttack.z), new Vector3(3, 20, 5));
     }
 
 
@@ -137,9 +137,7 @@ public class Wraith : Character
     public override float SuperAttack(GameObject owner)
     {
         Vector3 vectorAttack = owner.transform.position;
-        vectorAttack.x += owner.transform.localScale.x;
-        vectorAttack.y += owner.transform.localScale.y;
-        Collider[] colliders = Physics.OverlapBox(new Vector3(vectorAttack.x + superDistance, vectorAttack.y, vectorAttack.z), owner.transform.localScale, Quaternion.identity, 6, QueryTriggerInteraction.Collide);
+        Collider[] colliders = Physics.OverlapBox(new Vector3(vectorAttack.x + superDistance, vectorAttack.y, vectorAttack.z), new Vector3(3, 20, 5), Quaternion.identity);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != owner) 
@@ -160,10 +158,14 @@ public class Wraith : Character
         if (obj)
         {
             obj.SetActive(true);
-            obj.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z + 11);
+
+            Vector3 vectorAttack = transform.position;
+            vectorAttack.y += transform.localScale.y;
+            vectorAttack.x += transform.localScale.x;
+            obj.transform.position = vectorAttack;
 
             MagicObject magicObjectComponent = obj.GetComponent<MagicObject>();
-            magicObjectComponent.SetDirection(transform.forward);
+            
 
         }
     }
