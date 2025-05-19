@@ -42,9 +42,4 @@ public class PlayerManager : MonoBehaviour
     {
         return character;
     }
-
-    public void SeUnio(PlayerInput pI)
-    {
-        
-    }
 }

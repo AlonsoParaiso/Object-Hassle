@@ -154,9 +154,9 @@ public class Wraith : Character
         return 0;
     }
 
-    void MagicSpawn(Transform transform, GameObjectPool bombPool)
+    void MagicSpawn(Transform transform, GameObjectPool magicPool)
     {
-        GameObject obj = bombPool.GimmeInactiveGameObject();
+        GameObject obj = magicPool.GimmeInactiveGameObject();
         if (obj)
         {
             obj.SetActive(true);

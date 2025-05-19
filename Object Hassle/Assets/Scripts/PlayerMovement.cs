@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed, runningSpeed, rotationSpeed, jumpForce, sphereRadius;//,gravityScale;
     public string groundName;
     public int life = 3;
-    private Animator animator;
+    private Animator _animator;
     private float currentTimeAtt;
     private float currentTimeSpAtt;
     private float currentTimeSuAtt;
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         
         
-        animator = GetComponentInChildren<Animator>();
+        _animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         PlayerManager[] managers = FindObjectsOfType<PlayerManager>();
@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
             }
         }
+        print(character);
 
         if (GetComponent<CharacterReference>().playerIndex == 1)
         {
@@ -86,10 +87,10 @@ public class PlayerMovement : MonoBehaviour
         // bool isMyController = false;
         //if (playerInput.actions["Move"].activeControl != null)
         //    isMyController = playerInput.actions["Move"].activeControl.device.deviceId - minDeviceID == playerManager.playerIndex;//playerInput.actions["Move"].GetBindingIndexForControl(playerInput.actions["Move"].controls[(int)playerManager.playerIndex]) == playerManager.playerIndex;
-        animator.SetBool("IsWalking", false);
+        _animator.SetBool("IsWalking", false);
         //if (!isMyController)
         //{
-        //    animator.SetBool("IsWalking", false);
+        //    _animator.SetBool("IsWalking", false);
         //    return;
         //}
         movementVector = playerInput.actions["Move"].ReadValue<Vector2>();
@@ -98,42 +99,42 @@ public class PlayerMovement : MonoBehaviour
         if (movementVector.x < 0)
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            animator.SetBool("IsWalking", true);
+            _animator.SetBool("IsWalking", true);
         }
         else if (movementVector.x > 0)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            animator.SetBool("IsWalking", true);
+            _animator.SetBool("IsWalking", true);
         }
         //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Jump" :"Jump 2"))
         //{
-        //    animator.SetBool("IsJumping", true);
+        //    _animator.SetBool("IsJumping", true);
         //AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
         //    jumpPressed = true;
         //}
         //jump
         //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire1" : "Fire1 2"))
         //{
-        //    animator.SetBool("IsAttacking", true);
+        //    _animator.SetBool("IsAttacking", true);
         //    character.Attack(gameObject);
         //    AudioManager.instance.PlayAudio(audioAttack, "Attack", false, 1f);
         //    Debug.Log("cua");
         //}
         //else
         //{
-        //    animator.SetBool("IsAttacking", false);
+        //    _animator.SetBool("IsAttacking", false);
         //}
         //attack
         //if(Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire2" : "Fire2 2")) 
         //{
-        //    animator.SetBool("IsSpecial", true);
+        //    _animator.SetBool("IsSpecial", true);
         //    character.SpecialAttack(gameObject);
         //    AudioManager.instance.PlayAudio(audioSpecial, "Special", false, 0.8f);
         //    Debug.Log("cir");
         //}
         //else
         //{
-        //    animator.SetBool("IsSpecial", false);
+        //    _animator.SetBool("IsSpecial", false);
         //}
         //SpecialAttack
         //if (Input.GetButtonDown(playerManager.playerIndex == 0 ? "Fire3" : "Fire3 2"))
@@ -152,11 +153,12 @@ public class PlayerMovement : MonoBehaviour
         // Gamepad.all[(int)playerManager.playerIndex].buttonSouth.IsPressed()
         //print("Player: " +( callbackContext.control.device.deviceId - minDeviceID));
         //print("sos: " + playerInput.devices[0].deviceId);
-        print("sios" + playerManager.playerIndex);
+        //print("sios" + playerManager.playerIndex);
         // bool isMyController = callbackContext.control.device.deviceId - minDeviceID == playerManager.playerIndex;//true;//playerInput.playerIndex == callbackContext.control.device.name; //callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed)
         {
-            animator.SetBool("IsJumping", true);
+            print(this);
+            GetComponentInChildren<Animator>().SetBool("IsJumping", true);
             AudioManager.instance.PlayAudio(audioJump, "Jump", false, 0.8f);
             jumpPressed = true;
         }
@@ -167,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed && currentTimeSpAtt >= 1.5f)
         {
-            animator.SetBool("IsSpecial", true);
+            _animator.SetBool("IsSpecial", true);
             character.SpecialAttack(gameObject);
             AudioManager.instance.PlayAudio(audioSpecial, "Special", false, 0.8f);
             Debug.Log("cir");
@@ -175,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            animator.SetBool("IsSpecial", false);
+            _animator.SetBool("IsSpecial", false);
         }
     }
 
@@ -184,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed)
         {
-            animator.SetBool("IsAttacking", true);
+            _animator.SetBool("IsAttacking", true);
             character.Attack(gameObject);
             AudioManager.instance.PlayAudio(audioAttack, "Attack", false, 1f);
             Debug.Log("cua");
@@ -194,7 +196,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             
-            animator.SetBool("IsAttacking", false);
+            _animator.SetBool("IsAttacking", false);
         }
     }
 
@@ -202,14 +204,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (callbackContext.performed)
         {
-            animator.SetBool("IsAttackingUp", true);
+            _animator.SetBool("IsAttackingUp", true);
             character.UpAttack(gameObject);
 
             Debug.Log("ua");
         }
         else 
         { 
-            animator.SetBool("IsAttakingUp", false);
+            _animator.SetBool("IsAttakingUp", false);
         }
     }
     
@@ -217,14 +219,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (callbackContext.performed)
         {
-            animator.SetBool("IsAttackingDown", true);
+            _animator.SetBool("IsAttackingDown", true);
             character.DownAttack(gameObject);
 
             Debug.Log("bye");
         }
         else 
         { 
-            animator.SetBool("IsAttakingDown", false);
+            _animator.SetBool("IsAttakingDown", false);
         }
     }
     public void SuperAttack(InputAction.CallbackContext callbackContext)
@@ -232,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed && currentTimeSuAtt>=10)
         {
-            animator.SetBool("IsUlting", true);
+            _animator.SetBool("IsUlting", true);
             character.SuperAttack(gameObject);
             AudioManager.instance.PlayAudio(audioUlt1, "Ulti1", false, 1f);
             AudioManager.instance.PlayAudio(audioUlt2, "Ulti2", false, 1f);
@@ -243,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            animator.SetBool("IsUlting", false);
+            _animator.SetBool("IsUlting", false);
         }
 
     }
@@ -305,12 +307,12 @@ public class PlayerMovement : MonoBehaviour
             // y comprobamos si el elemento es suelo o no.
             if (colliders[i].gameObject.layer == LayerMask.NameToLayer(groundName)) //Recorre cada elemento del array para ver si tocamos suelo
             {
-                animator.SetBool("IsJumping", false);
+                _animator.SetBool("IsJumping", false);
                 doubleJump = 0;
                 return true;
             }
         }
-        animator.SetBool("IsJumping", true);
+        _animator.SetBool("IsJumping", true);
         return false;
     }
     private void Death()
