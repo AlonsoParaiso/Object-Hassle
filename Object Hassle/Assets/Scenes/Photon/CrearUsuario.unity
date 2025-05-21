@@ -472,9 +472,9 @@ RectTransform:
   - {fileID: 846427368}
   m_Father: {fileID: 904355406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -15}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &110344706
@@ -556,7 +556,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 543351938}
+        m_TargetAssemblyTypeName: MenuControlador, Assembly-CSharp
+        m_MethodName: OnNombreJugadorCambia
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 110344706}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_InputField, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1071,7 +1083,7 @@ GameObject:
   - component: {fileID: 366939640}
   - component: {fileID: 366939639}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Crear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1092,9 +1104,9 @@ RectTransform:
   - {fileID: 1997517538}
   m_Father: {fileID: 394900050}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -50}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &366939639
@@ -1140,7 +1152,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 366939640}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 543351938}
+        m_TargetAssemblyTypeName: MenuControlador, Assembly-CSharp
+        m_MethodName: OnCrearRoomBoton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1062236492}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_InputField, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &366939640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1481,6 +1505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543351937}
   - component: {fileID: 543351938}
+  - component: {fileID: 543351939}
   m_Layer: 5
   m_Name: MenuControler
   m_TagString: Untagged
@@ -1528,8 +1553,30 @@ MonoBehaviour:
   txtListaJugadores: {fileID: 794512032}
   txtInfo: {fileID: 699964081}
   iniciarJuego: {fileID: 1952867238}
-  roomContenedor: {fileID: 135838554}
-  roomElemento: {fileID: 0}
+  roomContenedor: {fileID: 1295233168}
+  roomElemento: {fileID: 4439034173863258324, guid: f7c9134f2cf16694a954072f74c98edc, type: 3}
+--- !u!114 &543351939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543351936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &697436269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,9 +1997,9 @@ RectTransform:
   - {fileID: 214570913}
   m_Father: {fileID: 904355406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -85}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &816643412
@@ -2326,7 +2373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &898386157
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2711,6 +2758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1015073317}
   - component: {fileID: 1015073318}
+  - component: {fileID: 1015073319}
   m_Layer: 0
   m_Name: PhotonInstantiate
   m_TagString: Untagged
@@ -2746,6 +2794,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximoJugadores: 2
+--- !u!114 &1015073319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015073316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1039213733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,9 +2850,9 @@ RectTransform:
   - {fileID: 1785584173}
   m_Father: {fileID: 904355406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1039213735
@@ -2828,7 +2898,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1039213736}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 543351938}
+        m_TargetAssemblyTypeName: MenuControlador, Assembly-CSharp
+        m_MethodName: OnCrearRoomClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1039213736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2901,9 +2983,9 @@ RectTransform:
   - {fileID: 1376616028}
   m_Father: {fileID: 394900050}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1062236492
@@ -3492,7 +3574,7 @@ GameObject:
   - component: {fileID: 1406133499}
   - component: {fileID: 1406133498}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Regresar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3513,9 +3595,9 @@ RectTransform:
   - {fileID: 869947382}
   m_Father: {fileID: 394900050}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -85}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406133498
@@ -3770,7 +3852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1482949374
 RectTransform:
   m_ObjectHideFlags: 0
