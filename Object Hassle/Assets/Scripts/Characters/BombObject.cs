@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombObject : MonoBehaviour
 {
-    public float maxTime, speed, trowForce;
+    public float maxTime, speed, throwForce;
     public AudioClip explosionAudio;
 
     private float currentTime;
@@ -34,7 +34,7 @@ public class BombObject : MonoBehaviour
 
     public void ApplyParabolicThrow(Transform ownerTransform)
     {
-        rb.AddForce(((ownerTransform.localScale.x < 0 ? -ownerTransform.right : ownerTransform.right) + Vector3.up) * trowForce);
+        rb.AddForce(((ownerTransform.localScale.x < 0 ? -ownerTransform.right : ownerTransform.right) + Vector3.up) * throwForce);
     }
 
     private void OnDisable()

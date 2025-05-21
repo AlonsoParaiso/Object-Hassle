@@ -165,6 +165,8 @@ public class Wraith : Character
             obj.transform.position = vectorAttack;
 
             MagicObject magicObjectComponent = obj.GetComponent<MagicObject>();
+            magicObjectComponent.ResetVelocity();
+            magicObjectComponent.SetDirection(transform);
             
 
         }

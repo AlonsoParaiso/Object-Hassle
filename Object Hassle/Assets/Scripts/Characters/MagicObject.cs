@@ -6,6 +6,7 @@ public class MagicObject : MonoBehaviour
 {
     public float speed;
     public float maxTime;
+    public float throwForce = 3;
 
     private Rigidbody rb;
     private float currentTime;
@@ -25,9 +26,12 @@ public class MagicObject : MonoBehaviour
             currentTime = 0;
             rb.velocity = Vector3.zero;
             gameObject.SetActive(false);
-             
-        
         }
+    }
+
+    public void ResetVelocity()
+    {
+        rb.velocity = Vector3.zero;
     }
 
     private void FixedUpdate()
@@ -57,11 +61,11 @@ public class MagicObject : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawCube(transform.position, transform.localScale);
+        Gizmos.DrawWireCube(transform.position, transform.localScale);
     }
 
-    public void SetDirection(Vector3 value)
+    public void SetDirection(Transform ownerTransform)
     {
-        dir = value;
+        rb.AddForce(ownerTransform.localScale.x < 0 ? -ownerTransform.right : ownerTransform.right);
     }
 }
