@@ -192,7 +192,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8575830534683659102}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: AttackUpInput
+        m_MethodName: AttackInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

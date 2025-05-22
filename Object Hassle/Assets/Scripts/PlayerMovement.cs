@@ -212,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else 
         { 
-            _animator.SetBool("IsAttakingUp", false);
+            _animator.SetBool("IsAttackingUp", false); 
         }
     }
     
@@ -227,7 +227,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else 
         { 
-            _animator.SetBool("IsAttakingDown", false);
+            _animator.SetBool("IsAttackingDown", false);
         }
     }
     public void SuperAttack(InputAction.CallbackContext callbackContext)
