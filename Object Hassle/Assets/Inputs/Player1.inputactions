@@ -53,16 +53,16 @@
                 {
                     "name": "UpAttack",
                     "type": "Button",
-                    "id": "c6460a69-23f5-49ab-8b8d-a6b1f3ed7d3b",
+                    "id": "16fb9e73-8a8c-4bb7-980a-bccc3eca3df6",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Down",
+                    "name": "DownAttack",
                     "type": "Button",
-                    "id": "af7ca6b6-777d-4865-b54e-7b5bdce33c32",
+                    "id": "8e69060b-1c1c-4fde-8b55-fbdcfae802ce",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -126,31 +126,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "187ea95f-c999-4958-a9ad-8005e31053f9",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Down",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1d2a272e-7b99-4983-99cd-290b2c3b77aa",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Down",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Button With One Modifier",
-                    "id": "b687dc05-61cd-46d0-a1ea-3259787425f7",
-                    "path": "ButtonWithOneModifier",
+                    "name": "One Modifier",
+                    "id": "2c71e203-d5ab-4d57-aab3-0dfea78dcb3e",
+                    "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -159,8 +137,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Modifier",
-                    "id": "c8171bf3-fab1-4052-b4a0-af34015584d7",
+                    "name": "modifier",
+                    "id": "81b48b5b-33cc-40e0-ae22-7adabe42f78e",
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
@@ -170,13 +148,46 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Button",
-                    "id": "a76b9aa3-368b-4ad1-b001-9eec8feae453",
-                    "path": "<Gamepad>/buttonWest",
+                    "name": "binding",
+                    "id": "21b3f529-e57e-454e-b756-024730358d83",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "UpAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "2788aa00-98c9-4d9a-9de7-100024200a0c",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownAttack",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "20fd1887-238c-4afc-97d0-fe4207bd8276",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "4e69d6c1-504b-4998-b952-d50c8a054100",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownAttack",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

@@ -203,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void AttackUpInput(InputAction.CallbackContext callbackContext) 
     {
-        if (callbackContext.performed)
+        if (callbackContext.performed )
         {
             _animator.SetBool("IsAttackingUp", true);
             character.UpAttack(gameObject);
