@@ -236,6 +236,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 39f3f38f-9aeb-4e49-943e-9722c2dccfc6
     m_ActionName: Player/SuperAttack[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8575830534683659102}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: AttackUpInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c6460a69-23f5-49ab-8b8d-a6b1f3ed7d3b
+    m_ActionName: Player/UpAttack
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8575830534683659102}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: AttackDownInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: af7ca6b6-777d-4865-b54e-7b5bdce33c32
+    m_ActionName: Player/Down
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -200,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     public void AttackUpInput(InputAction.CallbackContext callbackContext) 
     {
         if (callbackContext.performed)

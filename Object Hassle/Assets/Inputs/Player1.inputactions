@@ -51,18 +51,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "New action",
+                    "name": "UpAttack",
                     "type": "Button",
-                    "id": "50b31eff-8e14-42b9-8ff6-7c52d9f0a98d",
+                    "id": "c6460a69-23f5-49ab-8b8d-a6b1f3ed7d3b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "New action1",
+                    "name": "Down",
                     "type": "Button",
-                    "id": "92c6b254-49a1-40e8-a25a-6785350d2d3d",
+                    "id": "af7ca6b6-777d-4865-b54e-7b5bdce33c32",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -127,56 +127,45 @@
                 },
                 {
                     "name": "",
-                    "id": "06f35903-db82-47bf-8dd5-4da26c5fe726",
-                    "path": "",
+                    "id": "c58d1483-0e8b-47ed-a218-c72d77369e49",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "UpAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "1D Axis",
-                    "id": "b34c587d-ce57-4593-a848-04fed38ec7c9",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "978daf05-9695-4b78-a849-7f4abe474bac",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "5a7478be-f2a2-4f69-a21f-1c74cd79da8a",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "a54ab4b3-8f9f-408a-9225-c04c590c8c56",
-                    "path": "",
+                    "id": "2a428c0a-63d1-42b4-b1be-020331076209",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action1",
+                    "action": "UpAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "187ea95f-c999-4958-a9ad-8005e31053f9",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d2a272e-7b99-4983-99cd-290b2c3b77aa",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
