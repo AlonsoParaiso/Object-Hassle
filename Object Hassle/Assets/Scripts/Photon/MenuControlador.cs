@@ -122,7 +122,7 @@ public class MenuControlador : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnIniciarJuegoCliked()
     {
-
+        PhotonNetwork.LoadLevel("MapRainPhoton");
     }
 
     public void OnSalirLobby()

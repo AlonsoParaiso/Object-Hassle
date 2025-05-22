@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a3f0baf53c370df4e9f5a82c79d7cd81
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioPunch: {instanceID: 0}
+  - audioSpecial: {instanceID: 0}
+  - audioJump: {instanceID: 0}
+  - audioUlt: {instanceID: 0}
+  - audioWalk: {fileID: 8300000, guid: 4547952758c8bfd41836293b44233f25, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
