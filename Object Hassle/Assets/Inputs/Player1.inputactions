@@ -127,28 +127,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c58d1483-0e8b-47ed-a218-c72d77369e49",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "UpAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2a428c0a-63d1-42b4-b1be-020331076209",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "UpAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "187ea95f-c999-4958-a9ad-8005e31053f9",
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
@@ -168,6 +146,39 @@
                     "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "Button With One Modifier",
+                    "id": "b687dc05-61cd-46d0-a1ea-3259787425f7",
+                    "path": "ButtonWithOneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpAttack",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Modifier",
+                    "id": "c8171bf3-fab1-4052-b4a0-af34015584d7",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Button",
+                    "id": "a76b9aa3-368b-4ad1-b001-9eec8feae453",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
