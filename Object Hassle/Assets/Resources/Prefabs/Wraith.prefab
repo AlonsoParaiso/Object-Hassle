@@ -197,11 +197,11 @@ MonoBehaviour:
   groundName: ground
   life: 3
   doubleJump: 0
-  audioAttack: {fileID: 8300000, guid: 9214c98599e4ec84c91561b37cef04dd, type: 3}
-  audioSpecial: {fileID: 8300000, guid: ebd970240cc7bc84b99e581dea5af28f, type: 3}
-  audioJump: {fileID: 8300000, guid: bade478cf80aafd4295e0143c04bf75e, type: 3}
+  audioAttack: {fileID: 8300000, guid: 0149e75ff283ba04cb1bd63db91d6bdb, type: 3}
+  audioSpecial: {fileID: 8300000, guid: c1e5e6f07c8a01540a7b615620cc26ba, type: 3}
+  audioJump: {fileID: 0}
   audioUlt1: {fileID: 8300000, guid: 54ea3c6cc53031b489a460c6520784f7, type: 3}
-  audioUlt2: {fileID: 8300000, guid: c5f08c659af9c4a448d469e301b64179, type: 3}
+  audioUlt2: {fileID: 8300000, guid: 55bf79aa554f61c4eadd6385b28a09a8, type: 3}
   minDeviceID: 2147483647
   skinnedMeshRenderer: {fileID: 0}
 --- !u!114 &-7441994936230955453
@@ -311,12 +311,12 @@ MonoBehaviour:
     m_ActionName: Player/SuperAttack[/DualShock4GamepadHID/rightShoulder]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 50b31eff-8e14-42b9-8ff6-7c52d9f0a98d
-    m_ActionName: Player/New action
+    m_ActionId: 16fb9e73-8a8c-4bb7-980a-bccc3eca3df6
+    m_ActionName: Player/UpAttack[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 92c6b254-49a1-40e8-a25a-6785350d2d3d
-    m_ActionName: Player/New action1
+    m_ActionId: 8e69060b-1c1c-4fde-8b55-fbdcfae802ce
+    m_ActionName: Player/DownAttack[/XInputControllerWindows/leftStick/down,/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

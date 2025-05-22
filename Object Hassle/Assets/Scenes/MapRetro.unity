@@ -151,10 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8c52b167394eb4ea9704364a08ae89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 0db1f5e4e8fdfe241aa49ea5e26988fb, type: 3}
+  audioClip: {fileID: 8300000, guid: 683b6f85f66c2154f8afa85326ad358b, type: 3}
   isLoop: 1
   playOnStart: 1
-  volume: 0.3
+  volume: 0.4
   gameObjectName: BackgroundMusicCombat
 --- !u!4 &25843921
 Transform:
