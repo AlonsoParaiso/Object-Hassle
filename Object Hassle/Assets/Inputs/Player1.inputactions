@@ -150,7 +150,7 @@
                 {
                     "name": "",
                     "id": "187ea95f-c999-4958-a9ad-8005e31053f9",
-                    "path": "<Gamepad>/leftStick/up",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
