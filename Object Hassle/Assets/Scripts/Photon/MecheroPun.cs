@@ -26,7 +26,7 @@ public class MecheroPun : CharacterPun
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 5);
                 return damage;
             }
@@ -46,7 +46,7 @@ public class MecheroPun : CharacterPun
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 8);
                 return damage;
             }
@@ -67,7 +67,7 @@ public class MecheroPun : CharacterPun
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 8);
                 return damage;
             }
@@ -150,7 +150,7 @@ public class MecheroPun : CharacterPun
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 12);
                 return damage;
             }
@@ -171,7 +171,7 @@ public class MecheroPun : CharacterPun
             if (colliders[i].gameObject.layer == LayerMask.NameToLayer("Player") && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 20);
                 return damage;
             }

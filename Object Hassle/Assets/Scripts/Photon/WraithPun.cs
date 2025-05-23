@@ -45,7 +45,7 @@ public class WraithPun : CharacterPun
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 7);
                 return damage;
             }
@@ -66,7 +66,7 @@ public class WraithPun : CharacterPun
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 7);
                 return damage;
             }
@@ -143,7 +143,7 @@ public class WraithPun : CharacterPun
             if (colliders[i].gameObject != owner) 
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 20);
                 return damage;
             }

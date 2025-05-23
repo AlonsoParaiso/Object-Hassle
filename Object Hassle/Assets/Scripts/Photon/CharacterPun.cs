@@ -58,7 +58,7 @@ public abstract class CharacterPun
     {
         Vector3 force = ((transform.localScale.x < 0 ? -Vector3.right : Vector3.right) + Vector3.up) *(damage * GetHealth());
         rb.AddForce(force);
-        rb.GetComponent<PlayerMovement>().kk1();
+        rb.GetComponent<PlayerMovementPun>().kk1();
         health += damage;
 
     }
