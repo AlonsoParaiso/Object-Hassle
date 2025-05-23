@@ -27,7 +27,7 @@ public class ReyBombaPun : CharacterPun
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 8);
                 return damage;
             }
@@ -49,7 +49,7 @@ public class ReyBombaPun : CharacterPun
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 8);
                 return damage;
             }
@@ -70,7 +70,7 @@ public class ReyBombaPun : CharacterPun
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 8);
                 return damage;
             }
@@ -144,7 +144,7 @@ public class ReyBombaPun : CharacterPun
                 && colliders[i].gameObject != owner) //Recorre cada elemento del array para ver si tocamos suelo
             {
                 Debug.Log("dar");
-                CharacterReference playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReference>();
+                CharacterReferencePun playerManagerEnemy = colliders[i].gameObject.GetComponent<CharacterReferencePun>();
                 playerManagerEnemy.character.Knockback(playerManagerEnemy.gameObject.GetComponent<Rigidbody>(), owner.transform, 25);
                 return damage;
             }

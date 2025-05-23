@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 3
   speed: 5
-  trowForce: 300
+  throwForce: 10
   explosionAudio: {fileID: 8300000, guid: 78f2d4b9daa5d4e4a8c76e546279f293, type: 3}
 --- !u!135 &7046069918449767826
 SphereCollider:
