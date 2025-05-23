@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1759522467471238128}
   - component: {fileID: 8471881849998716085}
   - component: {fileID: 1759626125182411530}
+  - component: {fileID: 5552807682476389016}
   m_Layer: 6
   m_Name: reybomba
   m_TagString: Player
@@ -241,12 +242,12 @@ MonoBehaviour:
     m_ActionName: Player/SuperAttack[/DualShock4GamepadHID/rightShoulder]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 50b31eff-8e14-42b9-8ff6-7c52d9f0a98d
-    m_ActionName: Player/New action
+    m_ActionId: 16fb9e73-8a8c-4bb7-980a-bccc3eca3df6
+    m_ActionName: Player/UpAttack[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 92c6b254-49a1-40e8-a25a-6785350d2d3d
-    m_ActionName: Player/New action1
+    m_ActionId: 8e69060b-1c1c-4fde-8b55-fbdcfae802ce
+    m_ActionName: Player/DownAttack[/XInputControllerWindows/leftStick/down,/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -302,10 +303,41 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1759522467471238128}
+  - {fileID: 8471881849998716085}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &5552807682476389016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3415510332304906220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f0baf53c370df4e9f5a82c79d7cd81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BasicoVFX: {fileID: 6310987609069187042}
+  UltiVFX: {fileID: 3530983777065891696}
+  speed: 7
+  runningSpeed: 20
+  rotationSpeed: 0
+  jumpForce: 400
+  sphereRadius: 0.65
+  groundName: ground
+  life: 3
+  doubleJump: 0
+  audioAttack: {fileID: 8300000, guid: ebd970240cc7bc84b99e581dea5af28f, type: 3}
+  audioSpecial: {fileID: 8300000, guid: f7aec7c1d35768040852ca9cd91f22ca, type: 3}
+  audioJump: {fileID: 8300000, guid: bade478cf80aafd4295e0143c04bf75e, type: 3}
+  audioUlt1: {fileID: 8300000, guid: 54ea3c6cc53031b489a460c6520784f7, type: 3}
+  audioUlt2: {fileID: 8300000, guid: 98ff567e513d28c41a17994a5673154b, type: 3}
+  minDeviceID: 2147483647
+  skinnedMeshRenderer: {fileID: 0}
 --- !u!1001 &2770595069786322138
 PrefabInstance:
   m_ObjectHideFlags: 0
