@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 339910311}
   - component: {fileID: 339910310}
   m_Layer: 5
-  m_Name: 1Player
+  m_Name: Online
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,10 +418,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 07764f1169688f24fbd184d75948c74b, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 11976d8462e0b23418da994727dbfaef, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 11976d8462e0b23418da994727dbfaef, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 4474d9204e6d3ff4e882c6210072f7ea, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 127d489286a150f4682ffe58f06f38bc, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 79c5983f178a49940b7fda072288d344, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 79c5983f178a49940b7fda072288d344, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: eaf6a5424f20b42478b660c9aa9e1d17, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -442,7 +442,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SeleccionDeEscenarios
+          m_StringArgument: CrearUsuario
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &339910311
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4474d9204e6d3ff4e882c6210072f7ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eaf6a5424f20b42478b660c9aa9e1d17, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1061,7 +1061,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SeleccionDePersonajes
+          m_StringArgument: SeleccionDeEscenarios
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1156170116
