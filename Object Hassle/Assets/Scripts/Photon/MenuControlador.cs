@@ -122,6 +122,7 @@ public class MenuControlador : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnIniciarJuegoCliked()
     {
+        AudioManager.instance.ClearAudio();
         SceneManager.LoadScene("MapRainPhoton");
     }
 
