@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using static UnityEditor.PlayerSettings;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class WraithPun : CharacterPun
 {

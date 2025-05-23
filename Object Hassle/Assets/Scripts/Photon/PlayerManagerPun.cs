@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.TextCore.Text;
+using Photon.Realtime;
 
 public class PlayerManagerPun : MonoBehaviourPunCallbacks
 {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using static UnityEngine.UI.GridLayoutGroup;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class ReyBombaPun : CharacterPun
 {
