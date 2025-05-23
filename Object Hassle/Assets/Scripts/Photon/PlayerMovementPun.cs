@@ -19,13 +19,13 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
     private float currentTimeSuAtt;
 
     private Vector2 movementVector;
-    private PlayerManager playerManager;
+    private PlayerManagerPun playerManager;
     private Rigidbody rb;
     private PlayerInput playerInput;
 
     private bool jumpPressed, nospeed;
     public int doubleJump;
-    public Character character;
+    public CharacterPun  character;
 
     public AudioClip audioAttack, audioSpecial, audioJump, audioUlt1, audioUlt2;
 
@@ -44,10 +44,10 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
         _animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
-        PlayerManager[] managers = FindObjectsOfType<PlayerManager>();
-        foreach (PlayerManager pm in managers)
+        PlayerManagerPun[] managers = FindObjectsOfType<PlayerManagerPun>();
+        foreach (PlayerManagerPun pm in managers)
         {
-            if (pm.playerIndex == GetComponent<CharacterReference>().playerIndex)
+            if (pm.playerIndex == GetComponent<CharacterReferencePun>().playerIndex)
             {
                 this.playerManager = pm;
                 break;
@@ -55,7 +55,7 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
         }
         print(character);
 
-        if (GetComponent<CharacterReference>().playerIndex == 1)
+        if (GetComponent<CharacterReferencePun>().playerIndex == 1)
         {
             Color32 color = skinnedMeshRenderer.material.color = new Color(0.3f, 1f, 1f, 1f);
             //skinnedMeshRenderer.material.color = Color.blue;
