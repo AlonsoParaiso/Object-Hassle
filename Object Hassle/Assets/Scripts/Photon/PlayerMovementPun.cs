@@ -45,8 +45,17 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         PlayerManagerPun[] managers = FindObjectsOfType<PlayerManagerPun>();
+        foreach (PlayerManagerPun pm in managers)
+        {
+            if (pm.playerIndex == GetComponent<CharacterReferencePun>().playerIndex)
+            {
+                this.playerManager = pm;
+                break;
+            }
+        }
         print(character);
 
+        if (GetComponent<CharacterReferencePun>().playerIndex == 1)
         {
             Color32 color = skinnedMeshRenderer.material.color = new Color(0.3f, 1f, 1f, 1f);
             //skinnedMeshRenderer.material.color = Color.blue;
@@ -295,10 +304,7 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
 
     private void FixedUpdate()
     {
-        if (!photonView.IsMine && PhotonNetwork.IsConnected)
-        {
-            return;
-        }
+
         if (!nospeed)
             ApplySpeed();
         IsGrounded();
@@ -318,7 +324,6 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
 
     void ApplyJumpSpeed()
     {
-
         if (jumpPressed && (IsGrounded() || doubleJump < 1))
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
