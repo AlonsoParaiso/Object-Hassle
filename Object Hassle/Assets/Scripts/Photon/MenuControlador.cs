@@ -84,7 +84,7 @@ public class MenuControlador : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnRegresarClicked()
     {
-        
+        SceneManager.LoadScene("Menu");
     }
     public void OnCrearRoomBoton(TMP_InputField nombre)
     {
@@ -122,7 +122,7 @@ public class MenuControlador : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnIniciarJuegoCliked()
     {
-        PhotonNetwork.LoadLevel("MapRainPhoton");
+        SceneManager.LoadScene("MapRainPhoton");
     }
 
     public void OnSalirLobby()
