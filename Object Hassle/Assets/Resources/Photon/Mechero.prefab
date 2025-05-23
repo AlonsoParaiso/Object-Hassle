@@ -104,9 +104,6 @@ PrefabInstance:
       addedObject: {fileID: -2755109627926062158}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2851dabc076f5334b843d161ecd12967, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -5838859722837010639}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2851dabc076f5334b843d161ecd12967, type: 3}
-      insertIndex: -1
       addedObject: {fileID: -7441994936230955453}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2851dabc076f5334b843d161ecd12967, type: 3}
       insertIndex: -1
@@ -181,35 +178,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &-5838859722837010639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4489216737572705960}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70efa36dab8af094f8be06c75cb1aba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BasicoVFX: {fileID: 7502228653242074636}
-  UltiVFX: {fileID: 5728896699041544792}
-  speed: 10
-  runningSpeed: 20
-  rotationSpeed: 0
-  jumpForce: 500
-  sphereRadius: 0.65
-  groundName: ground
-  life: 3
-  doubleJump: 0
-  audioAttack: {fileID: 8300000, guid: 9214c98599e4ec84c91561b37cef04dd, type: 3}
-  audioSpecial: {fileID: 8300000, guid: ebd970240cc7bc84b99e581dea5af28f, type: 3}
-  audioJump: {fileID: 8300000, guid: bade478cf80aafd4295e0143c04bf75e, type: 3}
-  audioUlt1: {fileID: 8300000, guid: 54ea3c6cc53031b489a460c6520784f7, type: 3}
-  audioUlt2: {fileID: 8300000, guid: c5f08c659af9c4a448d469e301b64179, type: 3}
-  minDeviceID: 2147483647
-  skinnedMeshRenderer: {fileID: 0}
 --- !u!114 &-7441994936230955453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +205,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5838859722837010639}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: JumpInput
         m_Mode: 0
@@ -269,7 +237,7 @@ MonoBehaviour:
     m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5838859722837010639}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: AttackInput
         m_Mode: 0
@@ -285,7 +253,7 @@ MonoBehaviour:
     m_ActionName: Player/Attack[/DualShock4GamepadHID/buttonWest]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5838859722837010639}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: SpAttackInput
         m_Mode: 0
@@ -301,7 +269,7 @@ MonoBehaviour:
     m_ActionName: Player/SpecialAttack[/DualShock4GamepadHID/buttonEast]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5838859722837010639}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: SuperAttack
         m_Mode: 0
@@ -421,6 +389,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 8142103755553904120}
+  - {fileID: 965057750927865139}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
