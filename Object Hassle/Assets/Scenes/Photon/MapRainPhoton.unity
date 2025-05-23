@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8c52b167394eb4ea9704364a08ae89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 31a2e38f626277e4db10bd045ff375c2, type: 3}
+  audioClip: {fileID: 8300000, guid: 7839e93f87e904345883d05809ce51b3, type: 3}
   isLoop: 1
   playOnStart: 1
   volume: 0.3

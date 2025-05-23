@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BasicoVFX: {fileID: 4044767635785028194, guid: 7d18b48dc559280439b38598eb1aee0a, type: 3}
-  UltiVFX: {fileID: 0}
+  UltiVFX: {fileID: 4044767635785028194, guid: 7d18b48dc559280439b38598eb1aee0a, type: 3}
   speed: 10
   runningSpeed: 20
   rotationSpeed: 0

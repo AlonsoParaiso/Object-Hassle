@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SeleccionDePersonajes.unity
     guid: 20b780b195f06f34a81993e6d280f945
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Combate.unity
     guid: 4c4c178af5b77114f8baad905742fa77
   - enabled: 1

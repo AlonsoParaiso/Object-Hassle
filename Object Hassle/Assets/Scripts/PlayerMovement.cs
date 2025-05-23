@@ -329,8 +329,6 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(new Vector3(transform.position.x,
             transform.position.y - transform.localScale.y / 2, transform.position.z), sphereRadius);
-
-        character.DrawGizmos(gameObject);
     }
 
 
