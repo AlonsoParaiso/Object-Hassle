@@ -29,7 +29,8 @@ public class PlayerManagerPun : MonoBehaviourPunCallbacks
         }
 
         character.SetCharacterIndex(playerIndex);
-        GameObject nPlayer = PlayerInput.Instantiate(character.GetGameObject(), pairWithDevice: Gamepad.all[(int)playerIndex]).gameObject;
+        //GameObject nPlayer = PlayerInput.Instantiate(character.GetGameObject(), pairWithDevice: Gamepad.all[(int)playerIndex]).gameObject;
+        GameObject nPlayer = PhotonNetwork.Instantiate("Photon/" + character.GetGameObject().name, new Vector3(0.5219868f, 3.851968f, -2.51f), Quaternion.identity);
         nPlayer.transform.Rotate(0,120,0);
         nPlayer.transform.rotation = Quaternion.identity;
         nPlayer.transform.position = new Vector3(0.5219868f, 3.851968f, -2.51f);
