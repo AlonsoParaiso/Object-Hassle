@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 634623417383015492}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.094052, y: 0, z: 0}
+  m_LocalPosition: {x: -0.8700541, y: -0.0000002235272, z: -0.0000000558818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14521,7 +14521,6 @@ GameObject:
   - component: {fileID: 3333195426683312391}
   - component: {fileID: 2888482748364188373}
   - component: {fileID: 6767638655034303323}
-  - component: {fileID: 1624059287826284695}
   - component: {fileID: 7590699409034902360}
   - component: {fileID: 2188678812816194108}
   - component: {fileID: -80123994575594145}
@@ -19407,21 +19406,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1624059287826284695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7172730604201454300}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f421297964672ed4b8246b0b1ee0ef17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnWhenFinish: {fileID: 0}
-  speed: 20
-  distance: 30
 --- !u!65 &7590699409034902360
 BoxCollider:
   m_ObjectHideFlags: 0
