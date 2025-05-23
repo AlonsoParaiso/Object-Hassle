@@ -82,7 +82,7 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (photonView.IsMine && PhotonNetwork.IsConnected)
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
         {
             return;
         }
@@ -160,6 +160,11 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
         //print("sos: " + playerInput.devices[0].deviceId);
         //print("sios" + playerManager.playerIndex);
         // bool isMyController = callbackContext.control.device.deviceId - minDeviceID == playerManager.playerIndex;//true;//playerInput.playerIndex == callbackContext.control.device.name; //callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+        {
+            return;
+        }
+
         if (callbackContext.performed)
         {
             print(this);
@@ -171,6 +176,11 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
 
     public void SpAttackInput(InputAction.CallbackContext callbackContext)
     {
+
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+        {
+            return;
+        }
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed && currentTimeSpAtt >= 1.5f)
         {
@@ -188,6 +198,11 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
 
     public void AttackInput(InputAction.CallbackContext callbackContext)
     {
+
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+        {
+            return;
+        }
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed)
         {
@@ -207,6 +222,11 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
 
     public void AttackUpInput(InputAction.CallbackContext callbackContext) 
     {
+
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+        {
+            return;
+        }
         if (callbackContext.performed)
         {
             _animator.SetBool("IsAttackingUp", true);
@@ -222,6 +242,11 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
     
     public void AttackDownInput(InputAction.CallbackContext callbackContext) 
     {
+
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+        {
+            return;
+        }
         if (callbackContext.performed)
         {
             _animator.SetBool("IsAttackingDown", true);
@@ -236,6 +261,11 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
     }
     public void SuperAttack(InputAction.CallbackContext callbackContext)
     {
+
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+        {
+            return;
+        }
         //bool isMyController = callbackContext.action.GetBindingIndexForControl(callbackContext.control) == playerManager.playerIndex;
         if (callbackContext.performed && currentTimeSuAtt>=10)
         {
@@ -274,6 +304,10 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
 
     private void FixedUpdate()
     {
+        if (!photonView.IsMine && PhotonNetwork.IsConnected)
+        {
+            return;
+        }
         if (!nospeed)
             ApplySpeed();
         IsGrounded();
@@ -293,6 +327,7 @@ public class PlayerMovementPun : MonoBehaviourPunCallbacks
 
     void ApplyJumpSpeed()
     {
+
         if (jumpPressed && (IsGrounded() || doubleJump < 1))
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);

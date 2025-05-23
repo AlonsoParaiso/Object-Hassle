@@ -8,11 +8,18 @@ public class DeadZone : MonoBehaviour
     public AudioClip deathAudio;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerMovement>() || other.GetComponent<PlayerMovementPun>())
+        if (other.GetComponent<PlayerMovement>())
         {
             other.transform.position = spawn;//hace que spawnee donde se le diga
-            other.GetComponent < PlayerMovement>().character.SetHealth(0);
+            other.GetComponent<PlayerMovement>().character.SetHealth(0);
             other.GetComponent<PlayerMovement>().life -= 1;
+            other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+        if(other.GetComponent<PlayerMovementPun>())
+        {
+            other.transform.position = spawn;//hace que spawnee donde se le diga
+            other.GetComponent<PlayerMovementPun>().character.SetHealth(0);
+            other.GetComponent<PlayerMovementPun>().life -= 1;
             other.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
