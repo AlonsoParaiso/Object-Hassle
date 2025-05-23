@@ -12,8 +12,8 @@ public class PlayerManagerPun : MonoBehaviourPunCallbacks
     public uint playerIndex = 0;
     private void Start()
     {
-        
-        switch (Random.Range(0,3))
+
+        switch (Random.Range(0, 3))
         {
             case 0:
                 character = new ReyBombaPun("a", 10, 0);
@@ -30,13 +30,7 @@ public class PlayerManagerPun : MonoBehaviourPunCallbacks
 
         character.SetCharacterIndex(playerIndex);
         //GameObject nPlayer = PlayerInput.Instantiate(character.GetGameObject(), pairWithDevice: Gamepad.all[(int)playerIndex]).gameObject;
-        GameObject nPlayer = PhotonNetwork.Instantiate("Photon/" + character.GetGameObject().name, new Vector3(0.5219868f, 3.851968f, -2.51f), Quaternion.identity);
-        nPlayer.transform.Rotate(0,120,0);
-        nPlayer.transform.rotation = Quaternion.identity;
-        nPlayer.transform.position = new Vector3(0.5219868f, 3.851968f, -2.51f);
-        nPlayer.AddComponent<CharacterReferencePun>().character = character;
-        nPlayer.GetComponent<CharacterReferencePun>().playerIndex = (int)playerIndex;
-        nPlayer.GetComponent<CharacterReferencePun>().UpdateName();
+        StartCoroutine(DelayInstance());
         //nPlayer.GetComponent<PlayerInput>().devices[(int)playerIndex].deviceId;
     }
 
@@ -45,4 +39,19 @@ public class PlayerManagerPun : MonoBehaviourPunCallbacks
     {
         return character;
     }
+
+    IEnumerator DelayInstance()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameObject nPlayer = PhotonNetwork.Instantiate("Photon/" + character.GetGameObject().name, new Vector3(0.5219868f, 3.851968f, -2.51f), Quaternion.identity);
+        nPlayer.transform.Rotate(0, 120, 0);
+        nPlayer.transform.rotation = Quaternion.identity;
+        nPlayer.transform.position = new Vector3(0.5219868f, 3.851968f, -2.51f);
+        nPlayer.AddComponent<CharacterReferencePun>().character = character;
+        nPlayer.GetComponent<CharacterReferencePun>().playerIndex = (int)playerIndex;
+        nPlayer.GetComponent<CharacterReferencePun>().UpdateName();
+    }
 }
+
+
+ 
